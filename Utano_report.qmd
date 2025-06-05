@@ -1,0 +1,84 @@
+---
+title: "Utano Market Survey Report"
+author: "UlwaziHub"
+format: html
+editor: visual
+---
+
+## Introduction
+
+This report presents the latest findings from the Utano Market Survey, conducted by UlwaziHUB Consulting Services in South Africa. The survey, which targeted a diverse population, was administered online between May 30 and June 5. A total of 391 participants responded, providing valuable insights into current market trends, healthcare access, and service preferences. The data collected serves as a critical foundation for understanding the needs and expectations of communities, and will inform the design and delivery of more inclusive and responsive health-related services.
+
+## Methods
+
+The Utano Market Survey employed a cross-sectional study design and was conducted entirely online using a structured digital questionnaire. The survey instrument was developed in English and translated into additional local languages to improve accessibility and comprehension. A combination of purposive and snowball sampling techniques was used to recruit participants through social media platforms, community networks, and digital outreach by local partners.
+
+The questionnaire included both closed- and open-ended questions covering themes such as demographics, health-seeking behavior, service delivery preferences, and perceived barriers to healthcare. Data collection was anonymous, and participants provided informed consent electronically before beginning the survey. All data were securely stored and analyzed using statistical software to produce descriptive and inferential insights, including cross-tabulations and chi-square tests for associations between key variables such as gender and nationality.
+
+## Results
+
+This section presents the demographics and distribution of the results
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+  library(googlesheets4)
+  library(tidyverse)
+  library(googledrive)
+  library(summarytools)
+  library(janitor)
+  library(here)
+  library(readxl)
+  library(officer)
+  library(flextable)
+
+```
+
+A crosstabulation of Nationality and Gender was performed to examine the distribution of respondents across these two demographic characteristics. This analysis provides valuable insights into the composition and representativeness of the study population. By assessing how gender is distributed within each nationality group, we gain a deeper understanding of the population dynamics and potential sociocultural patterns influencing participation or response behaviors.
+```{r echo=FALSE ,warning=FALSE}
+
+raw_data <-readxl::read_xlsx(here("Data","utano_raw_data.xlsx"),sheet = "Sheet1")
+
+```
+
+```{r echo=FALSE ,warning=FALSE}
+
+raw_data %>%
+  filter(gender %in% c("male", "female")) %>%
+  mutate(nationality=gsub("_"," ",nationality)) %>% 
+  mutate(nationality=str_to_sentence(nationality)) %>% 
+  rename(Nationality=nationality) %>% 
+  tabyl(Nationality, gender) %>%
+    arrange(desc(male)) %>% 
+  adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_percentages("row") %>%                # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>%  
+    rename(
+    `Male (n %)` = male,
+    `Female (n %)` = female
+  ) %>% 
+
+  flextable() %>%
+  autofit()
+
+
+
+```
+A chi-square test of independence was conducted to examine the relationship between gender and nationality among participants. The analysis revealed a statistically significant association between gender and nationality, χ²(df = r chisq_result$parameter) = r round(chisq_result$statistic, 2), p = r p_val. This suggests that the distribution of gender differs significantly across nationalities in the dataset. The observed differences were supported by the cross-tabulated counts and row-wise percentages, with variations noted particularly in the proportions of males and females within each nationality group.
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+# Run chi-square test
+chi_data <- raw_data %>%
+  filter(gender %in% c("male", "female")) %>%
+  select(nationality, gender)
+
+chisq_result <- chisq.test(table(chi_data$nationality, chi_data$gender))
+
+# Extract and format p-value
+p_val <- signif(chisq_result$p.value, 3)
+p_text <- paste("Chi-square p =", p_val)
+
+
+# Display
+
+p_text
+```
+
