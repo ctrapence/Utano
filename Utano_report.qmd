@@ -31,6 +31,7 @@ This section presents the demographics and distribution of the results
   library(flextable)
 
 ```
+## Demographic Charecteristic of the Respondents
 
 A crosstabulation of Nationality and Gender was performed to examine the distribution of respondents across these two demographic characteristics. This analysis provides valuable insights into the composition and representativeness of the study population. By assessing how gender is distributed within each nationality group, we gain a deeper understanding of the population dynamics and potential sociocultural patterns influencing participation or response behaviors.
 
@@ -84,8 +85,18 @@ p_text <- paste("Chi-square p =", p_val)
 
 p_text
 ```
-## SECTION B: Healthcare Needs & Usage
-```{r}
+## Healthcare Needs & Usage.
+Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female users across different service types, visualized using a bar chart.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
+                      ggplot() +
+  aes(x = service_type, fill = gender) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency")  # Add axis titles here
+  
 
 ```
 ## SECTION C: Willingness to sign up for the product.
