@@ -1,7 +1,7 @@
 ---
 title: "Utano Market Survey Report"
 author: "UlwaziHub"
-format: html
+output: pdf_document
 editor: visual
 ---
 
@@ -86,21 +86,67 @@ p_text <- paste("Chi-square p =", p_val)
 p_text
 ```
 ## Healthcare Needs & Usage.
-Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female users across different service types, visualized using a bar chart.
+Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
+  mutate(gender=str_to_sentence(gender))%>% 
                       ggplot() +
   aes(x = service_type, fill = gender) +
   geom_bar(position = "dodge") +
   scale_fill_hue(direction = 1) +
   theme_linedraw() +
   theme(legend.justification = "right")+
-   labs(x = "Service Type", y = "Frequency")  # Add axis titles here
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
   
 
 ```
-## SECTION C: Willingness to sign up for the product.
-```{r}
+Understanding how different Nationality engage with various service types can provide valuable insights into consumer preferences and accessibility.The chart below highlights how employment status influence service preferences. Those in the informal sector predominantly chose Gold  while those in the formal sector,show stronger preference in Lithium, Platinum and Silver services. 
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA") %>% 
+  mutate(occupation=as.factor(str_to_sentence(occupation))) %>% 
+  mutate(occupation=fct_relevel(occupation, "informal","formal","ownbusiness","unemployed"))%>% 
+                      ggplot() +
+  aes(x = service_type, fill = occupation) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
+```
 
+## SECTION C: Willingness to sign up for the product.
+Language Preference and Choice of Healthcare Provider – Gender Disaggregation
+
+The majority of both female and male respondents indicated that language plays a significant role in their choice of healthcare provider, with 163 females (50%) and 160 males (50%) agreeing with this statement. A smaller proportion disagreed—17 females (57%) vs. 13 males (43%)—suggesting that more females than males feel language is important, though the numbers remain relatively low. Among those who were uncertain, the response was balanced, with 6 females (46%) and 7 males (54%) indicating they didn’t know whether language influences their provider choice. Overall, 366 respondents participated in this assessment, with a slightly higher representation of females (51%) than males (49%).
+
+This suggests that language is a key consideration for both genders when selecting a healthcare provider, highlighting the importance of language-concordant care in health service delivery (Table below)
+```{r warning=FALSE,message=FALSE,echo=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",language_pref!="NA") %>% 
+   mutate(language_pref=str_to_sentence(language_pref),gender=str_to_sentence(gender)) %>% 
+  mutate(language_pref=ifelse(language_pref=="Dontknow","Dont know",language_pref))%>% 
+  rename(Language=language_pref) %>% 
+  tabyl(Language,gender) %>% 
+  adorn_totals(where = "col") %>%  
+   adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_percentages("col") %>%                # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>% 
+  flextable() %>% 
+  autofit()
+```
+
+```{r warning=FALSE,message=FALSE,echo=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",gender_pref!="NA") %>% 
+   mutate(gender_pref=str_to_sentence(gender_pref),gender=str_to_sentence(gender)) %>% 
+  mutate(gender_pref=ifelse(gender_pref=="Dontknow","Dont know",gender_pref))%>% 
+  rename(Gender=gender_pref) %>% 
+  tabyl(Gender,gender) %>% 
+  adorn_totals(where = "col") %>%  
+   adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_percentages("col") %>%                # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>% 
+  flextable() %>% 
+  autofit()
 ```
 
