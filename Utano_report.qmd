@@ -157,3 +157,19 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
+```{r warning=FALSE,message=FALSE,echo=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
+   mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
+  mutate(keypop_services=ifelse(keypop_services=="Dontknow","Dont know",keypop_services))%>% 
+  rename(keypopulation=keypop_services) %>% 
+  tabyl(keypopulation,gender) %>% 
+  adorn_totals(where = "col") %>%  
+   adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_percentages("col") %>%                # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>% 
+  flextable() %>% 
+  autofit()
+
+```
+
