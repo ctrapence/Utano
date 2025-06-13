@@ -5,19 +5,7 @@ output: pdf_document
 editor: visual
 ---
 
-## Introduction
 
-This report presents the latest findings from the Utano Market Survey, conducted by UlwaziHUB Consulting Services in South Africa. The survey, which targeted a diverse population, was administered online between May 30 and June 5. A total of 391 participants responded, providing valuable insights into current market trends, healthcare access, and service preferences. The data collected serves as a critical foundation for understanding the needs and expectations of communities, and will inform the design and delivery of more inclusive and responsive health-related services.
-
-## Methods
-
-The Utano Market Survey employed a cross-sectional study design and was conducted entirely online using a structured digital questionnaire. The survey instrument was developed in English and translated into additional local languages to improve accessibility and comprehension. A combination of purposive and snowball sampling techniques was used to recruit participants through social media platforms, community networks, and digital outreach by local partners.
-
-The questionnaire included both closed- and open-ended questions covering themes such as demographics, health-seeking behavior, service delivery preferences, and perceived barriers to healthcare. Data collection was anonymous, and participants provided informed consent electronically before beginning the survey. All data were securely stored and analyzed using statistical software to produce descriptive and inferential insights, including cross-tabulations and chi-square tests for associations between key variables such as gender and nationality.
-
-## Results
-
-This section presents the demographics and distribution of the results
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
   library(googlesheets4)
@@ -29,21 +17,143 @@ This section presents the demographics and distribution of the results
   library(readxl)
   library(officer)
   library(flextable)
+  library(gt)
 
 ```
-
-## Demographic Charecteristic of the Respondents
-
-A crosstabulation of Nationality and Gender was performed to examine the distribution of respondents across these two demographic characteristics. This analysis provides valuable insights into the composition and representativeness of the study population. By assessing how gender is distributed within each nationality group, we gain a deeper understanding of the population dynamics and potential sociocultural patterns influencing participation or response behaviors.
 
 ```{r echo=FALSE ,warning=FALSE}
 
 raw_data <-readxl::read_xlsx(here("Data","utano_raw_data.xlsx"),sheet = "Sheet1")
 
 ```
+```{r echo=FALSE, warning=FALSE}
+# Filtering the NAs on the consents  and Counting viable records.
+
+count_all <- 
+   nrow(raw_data)
+
+count_yes <- 
+  raw_data %>%
+  filter(consent == "Yes" & !is.na(nationality)) %>%
+  summarise(Count_yes = n()) %>%
+  pull(Count_yes)
+
+count_no <- raw_data %>%
+  filter(consent == "No" ) %>%
+  summarise(Count_no = n()) %>%
+  pull(Count_no)
+
+print(count_no)
+
+count_missing <- 
+  raw_data %>%
+  filter(consent == "Yes" & is.na(nationality)) %>%
+  summarise(count_missing = n()) %>%
+  pull(count_missing)
+
+# Total achievement from the sample target of 385
+
+response_rate <- 
+  raw_data %>% 
+  filter(consent == "Yes" & !is.na(nationality)) %>%
+  summarise (achievemt = ((n()/385)*100)) %>% 
+  pull(achievemt) %>% 
+  round(1)
+
+  
+# clean data set 
+raw_data_c <- 
+  raw_data %>%
+  filter(consent == "Yes" & !is.na(nationality)) 
+
+```
+## Introduction
+
+This report presents the latest findings from the Utano Market Survey, conducted by UlwaziHUB Consulting Services in South Africa. The survey, which targeted a diverse population, was administered online between May 30 and June 5. A total of `r count_all` responses were recorded. However `r count_yes` have been considered as valid records while `r count_no` are responses from participants that did not give consent to the survey. The remaining `r count_missing` have been considered as missing values. Thus, the achieved response rate is `r response_rate`%. The respondents providing valuable insights into current market trends, healthcare access, and service preferences. The data collected serves as a critical foundation for understanding the needs and expectations of communities, and will inform the design and delivery of more inclusive and responsive health-related services.
+
+## Methods
+
+The Utano Market Survey employed a cross-sectional study design and was conducted entirely online using a structured digital questionnaire. The survey instrument was developed in English and translated into additional local languages to improve accessibility and comprehension. A combination of purposive and snowball sampling techniques was used to recruit participants through social media platforms, community networks, and digital outreach by local partners.
+
+The questionnaire included both closed- and open-ended questions covering themes such as demographics, health-seeking behavior, service delivery preferences, and perceived barriers to healthcare. Data collection was anonymous, and participants provided informed consent electronically before beginning the survey. All data were securely stored and analyzed using statistical software to produce descriptive and inferential insights, including cross-tabulations and chi-square tests for associations between key variables such as gender and nationality.
+
+## Results
+
+This section presents the demographics and distribution of the results
+
+
+```{r echo = FALSE, warning=FALSE}
+
+# Number of nationalities that responded
+
+nationalities_d <- 
+  raw_data_c %>% 
+  distinct(nationality) %>% 
+  summarise(distinct_nationalities = n_distinct(nationality)) %>% 
+  pull(distinct_nationalities)
+
+
+# Number and % of females that responded: 
+gender_female <- 
+  raw_data_c %>%
+  filter(gender == "female") %>% 
+  summarise(gender_female = n()) %>% 
+  pull(gender_female)
+
+
+female_percent <- 
+  raw_data_c %>%
+  filter(gender == "female") %>% 
+  summarise(female_percent = ((n()/385)*100)) %>% 
+  pull(female_percent) %>% 
+  round(1)
+
+# Number and % of females that responded:
+gender_male <- 
+  raw_data_c %>%
+  filter(gender == "male") %>% 
+  summarise(gender_male = n()) %>% 
+  pull(gender_male)
+
+
+male_percent <- 
+  raw_data_c %>%
+  filter(gender == "male") %>% 
+  summarise(male_percent = ((n()/385)*100)) %>% 
+  pull(male_percent) %>% 
+  round(1)
+
+# Average age overall
+avg_age <- 
+  raw_data_c %>% 
+  summarise(avg_age = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age) %>% 
+  round(1)
+
+# Average age overall for females 
+avg_age_fem <- 
+  raw_data_c %>% 
+  filter(gender == "female") %>% 
+  summarise(avg_age_fem = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age_fem) %>% 
+  round(1)
+
+# Average age overall for males.
+avg_age_mal <- 
+  raw_data_c %>% 
+  filter(gender == "male") %>% 
+  summarise(avg_age_mal = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age_mal) %>% 
+  round(1)
+
+
+```
+The sampled respondents were from `r nationalities_d` nationalities with `r gender_female` (`r female_percent` %) of them being females and the remaining `r gender_male` (`r male_percent` %) being males. Table \@\@\@\@ shows a breakdown of the nationalities that responded by gender.
+
+The overall average age for the survey respondents was `r avg_age` years. The females' average age was `r avg_age_fem` years and the males' average age was `r avg_age_mal` years. Majority of the survey participants that currently lived in South Africa as shown in Table @@@ were based in Pretoria followed by Johannesburg and then Capetown which seems to be in line with the order of launching the business model in question with Pretoria being the city where the health service product will be launched first and followed by the rest of Gauteng. 
 
 ```{r echo=FALSE ,warning=FALSE}
-
+cat("                    Table 1: Distribution of Males and Females by Country\n\n")
 raw_data %>%
   filter(gender %in% c("male", "female")) %>%
   mutate(nationality=gsub("_"," ",nationality)) %>% 
@@ -51,7 +161,8 @@ raw_data %>%
   rename(Nationality=nationality) %>% 
   tabyl(Nationality, gender) %>%
     arrange(desc(male)) %>% 
-  adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_totals(where = "row") %>% 
+ # Optional: add total row
   adorn_percentages("row") %>%                # Calculate row percentages
   adorn_pct_formatting(digits = 0) %>%        # Format percentages
   adorn_ns(position = "front") %>%  
@@ -67,8 +178,6 @@ raw_data %>%
 
 ```
 
-A chi-square test of independence was conducted to examine the relationship between gender and nationality among participants. The analysis revealed a statistically significant association between gender and nationality, χ²(df = r chisq_result$parameter) = r round(chisq_result$statistic, 2), p = r p_val. This suggests that the distribution of gender differs significantly across nationalities in the dataset. The observed differences were supported by the cross-tabulated counts and row-wise percentages, with variations noted particularly in the proportions of males and females within each nationality group.
-
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
 # Run chi-square test
 chi_data <- raw_data %>%
@@ -78,14 +187,15 @@ chi_data <- raw_data %>%
 chisq_result <- chisq.test(table(chi_data$nationality, chi_data$gender))
 
 # Extract and format p-value
-p_val <- signif(chisq_result$p.value, 3)
+p_val <- signif(chisq_result$p.value, 2)
 p_text <- paste("Chi-square p =", p_val)
 
 
 # Display
 
-p_text
 ```
+A chi-square test of independence was conducted to examine the relationship between gender and nationality among participants. The analysis revealed a statistically significant association between gender and nationality,p = `r p_val`. This suggests that the distribution of gender differs significantly across nationalities in the dataset. The observed differences were supported by the cross-tabulated counts and row-wise percentages, with variations noted particularly in the proportions of males and females within each nationality group.
+
 
 ## Healthcare Needs & Usage.
 
