@@ -5,8 +5,6 @@ output: pdf_document
 editor: visual
 ---
 
-
-
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
   library(googlesheets4)
   library(tidyverse)
@@ -26,6 +24,7 @@ editor: visual
 raw_data <-readxl::read_xlsx(here("Data","utano_raw_data.xlsx"),sheet = "Sheet1")
 
 ```
+
 ```{r echo=FALSE, warning=FALSE}
 # Filtering the NAs on the consents  and Counting viable records.
 
@@ -67,6 +66,7 @@ raw_data_c <-
   filter(consent == "Yes" & !is.na(nationality)) 
 
 ```
+
 ## Introduction
 
 This report presents the latest findings from the Utano Market Survey, conducted by UlwaziHUB Consulting Services in South Africa. The survey, which targeted a diverse population, was administered online between May 30 and June 5. A total of `r count_all` responses were recorded. However `r count_yes` have been considered as valid records while `r count_no` are responses from participants that did not give consent to the survey. The remaining `r count_missing` have been considered as missing values. Thus, the achieved response rate is `r response_rate`%. The respondents providing valuable insights into current market trends, healthcare access, and service preferences. The data collected serves as a critical foundation for understanding the needs and expectations of communities, and will inform the design and delivery of more inclusive and responsive health-related services.
@@ -79,8 +79,9 @@ The questionnaire included both closed- and open-ended questions covering themes
 
 ## Results
 
-This section presents the demographics and distribution of the results
+## Demographic Characteristic of the Respondents
 
+This section presents the demographics and distribution of the results
 
 ```{r echo = FALSE, warning=FALSE}
 
@@ -123,34 +124,11 @@ male_percent <-
   pull(male_percent) %>% 
   round(1)
 
-# Average age overall
-avg_age <- 
-  raw_data_c %>% 
-  summarise(avg_age = mean(age, na.rm = TRUE)) %>%
-  pull(avg_age) %>% 
-  round(1)
-
-# Average age overall for females 
-avg_age_fem <- 
-  raw_data_c %>% 
-  filter(gender == "female") %>% 
-  summarise(avg_age_fem = mean(age, na.rm = TRUE)) %>%
-  pull(avg_age_fem) %>% 
-  round(1)
-
-# Average age overall for males.
-avg_age_mal <- 
-  raw_data_c %>% 
-  filter(gender == "male") %>% 
-  summarise(avg_age_mal = mean(age, na.rm = TRUE)) %>%
-  pull(avg_age_mal) %>% 
-  round(1)
 
 
 ```
-The sampled respondents were from `r nationalities_d` nationalities with `r gender_female` (`r female_percent` %) of them being females and the remaining `r gender_male` (`r male_percent` %) being males. Table \@\@\@\@ shows a breakdown of the nationalities that responded by gender.
 
-The overall average age for the survey respondents was `r avg_age` years. The females' average age was `r avg_age_fem` years and the males' average age was `r avg_age_mal` years. Majority of the survey participants that currently lived in South Africa as shown in Table @@@ were based in Pretoria followed by Johannesburg and then Capetown which seems to be in line with the order of launching the business model in question with Pretoria being the city where the health service product will be launched first and followed by the rest of Gauteng. 
+The sampled respondents were from `r nationalities_d` nationalities with `r gender_female` (`r female_percent` %) of them being females and the remaining `r gender_male` (`r male_percent` %) being males. Table \@\@\@\@ shows a breakdown of the nationalities that responded by gender.
 
 ```{r echo=FALSE ,warning=FALSE}
 cat("                    Table 1: Distribution of Males and Females by Country\n\n")
@@ -194,8 +172,182 @@ p_text <- paste("Chi-square p =", p_val)
 # Display
 
 ```
+
 A chi-square test of independence was conducted to examine the relationship between gender and nationality among participants. The analysis revealed a statistically significant association between gender and nationality,p = `r p_val`. This suggests that the distribution of gender differs significantly across nationalities in the dataset. The observed differences were supported by the cross-tabulated counts and row-wise percentages, with variations noted particularly in the proportions of males and females within each nationality group.
 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Average age overall
+avg_age <- 
+  raw_data_c %>% 
+  summarise(avg_age = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age) %>% 
+  round(1)
+
+# Average age overall for females 
+avg_age_fem <- 
+  raw_data_c %>% 
+  filter(gender == "female") %>% 
+  summarise(avg_age_fem = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age_fem) %>% 
+  round(1)
+
+# Average age overall for males.
+avg_age_mal <- 
+  raw_data_c %>% 
+  filter(gender == "male") %>% 
+  summarise(avg_age_mal = mean(age, na.rm = TRUE)) %>%
+  pull(avg_age_mal) %>% 
+  round(1)
+
+```
+
+The overall average age for the survey respondents was `r avg_age` years. The females' average age was `r avg_age_fem` years and the males' average age was `r avg_age_mal` years. Majority of the survey participants that currently lived in South Africa as shown in Table \@\@\@ were based in Pretoria followed by Johannesburg and then Capetown which seems to be in line with the order of launching the business model in question with Pretoria being the city where the health service product will be launched first and followed by the rest of Gauteng. Looking at the participants' current location by nationality indicated that the largest proportions of each of the focus nationalities (Zimbabwe, Mozambique, Lesotho, Malawi) currently reside in Pretoria.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Frequency of current place of stay
+
+current_place <- 
+  raw_data_c %>% 
+  filter(country_res == "south_africa") %>% 
+  group_by(current_location) %>% 
+  summarise(distinct_location = n()) %>% 
+  mutate(
+    Percent = round((distinct_location/sum(distinct_location)) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  ) %>% 
+  rename(
+    "Current location where respondent lives" = current_location,
+   "Frequency" = distinct_location)
+
+# table has 2 places called capetown/City of Cape Town. Are these the same? 
+current_place %>% 
+ gt()
+
+
+# Recoding nationalities to Zimbabwe, Mozambique, Lesotho, Malawi and Others. 
+raw_data_c <- 
+  raw_data_c %>% 
+  mutate(nationality_recode = 
+           case_when( nationality == "zimbabwe" ~ "Zimbabwe", 
+                      nationality ==  "mozambique" ~ "Mozambique",
+                      nationality == "lesotho" ~ "Lesotho",
+                      nationality == "malawi" ~ "Malawi",
+                      TRUE ~ "Other"))
+
+```
+
+```{r echo = FALSE , warning = FALSE, message = FALSE}
+
+# Current location by nationality
+  raw_data_c %>% 
+  filter(country_res == "south_africa", 
+         !is.na(current_location)) %>% 
+  group_by(nationality_recode,current_location) %>% 
+  summarise(distinct_location = n()) %>% 
+  mutate(
+    Percent = round((distinct_location/sum(distinct_location)) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  ) %>% 
+  rename(
+    "Current location where respondent lives" = current_location,
+   "Frequency" = distinct_location)
+
+```
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+# Length of stay in South Africa
+
+raw_data_c %>%
+  filter(!is.na(nationality), 
+         !is.na(current_location),
+         !is.na(lived_in_sa), 
+         country_res == "south_africa", 
+         nationality != "south_africa") %>% 
+  group_by(lived_in_sa) %>% 
+  summarise(Frequency = n()) %>% 
+  mutate(
+    Percent = round((Frequency/sum(Frequency)) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  ) %>% 
+  mutate(lived_in_sa = case_when(lived_in_sa  == "1to5" ~ "1 to 5 yrs",
+                                 lived_in_sa  == "6to12" ~ "6 to 12 months",
+                                 lived_in_sa  == "less6" ~ "Less than 6 months",
+                                 lived_in_sa  == "over5" ~ "Over 5 years" ))
+
+# Length of stay in South Africa by nationality 
+raw_data_c %>%
+  filter(!is.na(nationality), 
+         !is.na(current_location),
+         !is.na(lived_in_sa), 
+         country_res == "south_africa", 
+         nationality != "south_africa") %>% 
+  group_by(nationality_recode, lived_in_sa) %>% 
+  summarise(Frequency = n()) %>% 
+  mutate(
+    Percent = round((Frequency/sum(Frequency)) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  ) %>% 
+  mutate(lived_in_sa = case_when(lived_in_sa  == "1to5" ~ "1 to 5 yrs",
+                                 lived_in_sa  == "6to12" ~ "6 to 12 months",
+                                 lived_in_sa  == "less6" ~ "Less than 6 months",
+                                 lived_in_sa  == "over5" ~ "Over 5 years" ))
+
+# Length of stay in South Africa by gender 
+raw_data_c %>%
+  filter(!is.na(nationality), 
+         !is.na(current_location),
+         !is.na(lived_in_sa), 
+         country_res == "south_africa", 
+         nationality != "south_africa") %>% 
+  group_by(gender, lived_in_sa) %>% 
+  summarise(Frequency = n()) %>% 
+  mutate(
+    Percent = round((Frequency/sum(Frequency)) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  ) %>% 
+  mutate(lived_in_sa = case_when(lived_in_sa  == "1to5" ~ "1 to 5 yrs",
+                                 lived_in_sa  == "6to12" ~ "6 to 12 months",
+                                 lived_in_sa  == "less6" ~ "Less than 6 months",
+                                 lived_in_sa  == "over5" ~ "Over 5 years" ))
+
+```
+
+Fifty percent of the non-South African nationalities respondents have been in South Africa for over five years while the second largest proportion of 37.5% have been in lived in South Africa for 1 - 5 yrs followed by those who have lived for 6 months - 12 months at 9.1% and then those that have been in South Africa for less than six months making up the remaining 3.4%. When the length of stay in South Africa was disaggregated by gender there did not seem to be a significant difference in the proportions by length of stay. However, disaggregating the length of stay by nationality, more Zimbabweans and Basotho tended to have been in South Africa for over 5 years (61.2% and 50% respectively) while a larger percentage of Malawians and Mozambicans indicated having lived in South Africa for 1 - 5 years.
+
+
+```{r}
+#Occupation and Education level by Naionality and Gender 
+
+raw_data_c %>%
+  filter(!is.na(occupation), 
+         !is.na(education_level)) %>% 
+  tabyl(education_level,occupation) %>%
+  adorn_totals("row") %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting()  
+  
+raw_data_c %>%
+  filter(!is.na(occupation), 
+         !is.na(education_level)) %>% 
+  tabyl(education_level,occupation, nationality_recode) %>%
+  adorn_totals("row") %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting()  
+
+raw_data_c %>%
+  filter(!is.na(occupation), 
+         !is.na(education_level),
+         !is.na(gender)) %>% 
+  tabyl(education_level,occupation,gender) %>%
+  adorn_totals("row") %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting()  %>% 
+  adorn_ns("rear")
+  
+  
+ 
+
+```
 
 ## Healthcare Needs & Usage.
 
@@ -267,6 +419,7 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
+
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
    mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
@@ -282,4 +435,3 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   autofit()
 
 ```
-
