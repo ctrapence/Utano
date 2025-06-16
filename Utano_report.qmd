@@ -79,7 +79,7 @@ The questionnaire included both closed- and open-ended questions covering themes
 
 ## Results
 
-## Demographic Characteristic of the Respondents
+## Section A: Demographic Characteristic of the Respondents
 
 This section presents the demographics and distribution of the results
 
@@ -314,21 +314,37 @@ raw_data_c %>%
 
 Fifty percent of the non-South African nationalities respondents have been in South Africa for over five years while the second largest proportion of 37.5% have been in lived in South Africa for 1 - 5 yrs followed by those who have lived for 6 months - 12 months at 9.1% and then those that have been in South Africa for less than six months making up the remaining 3.4%. When the length of stay in South Africa was disaggregated by gender there did not seem to be a significant difference in the proportions by length of stay. However, disaggregating the length of stay by nationality, more Zimbabweans and Basotho tended to have been in South Africa for over 5 years (61.2% and 50% respectively) while a larger percentage of Malawians and Mozambicans indicated having lived in South Africa for 1 - 5 years.
 
-```{r}
+```{r echo = FALSE, warning = FALSE, message = FALSE}
 # education levels and occupation level 
-
-raw_data_c %>% 
+edu_level <- 
+  raw_data_c %>% 
   filter(!is.na(education_level))  %>% 
-  summarise('Education Level' = n()) %>% 
+  group_by(education_level) %>% 
+  summarise(Education_level = n()) %>% 
   mutate(
-    Percent = round(('Education Level'/sum('Education Level')) * 100, 1),  
+    Percent = round((Education_level/sum(Education_level)) * 100, 1),  
     Percent = paste0(Percent, "%")
   )
   
+tertiary_per <- 
+  edu_level %>%
+  filter(education_level == "tertiary") %>%
+  pull(Percent)
+
+
+secondary_per <- 
+  edu_level %>%
+  filter(education_level == "secondary") %>%
+  pull(Percent)
+
+edu_none <- 
+  edu_level %>%
+  filter(education_level == "none") %>%
+  pull(Percent)
 ```
 
 
-The education level and  respondents' current occupation were asked. 
+
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 #Occupation and Education level by Naionality and Gender 
 
@@ -344,6 +360,8 @@ edu_occ <-
 
 edu_occ %>% 
   gt()
+
+
 
 edu_occ_nat <- 
   raw_data_c %>%
@@ -365,12 +383,61 @@ edu_occ_gender <-
   adorn_pct_formatting()  %>% 
   adorn_ns("rear")
   
-  
- 
+
 
 ```
 
-## Healthcare Needs & Usage.
+Overall, the majority of respondents have attained either tertiary (`r tertiary_per`) or secondary (`r secondary_per`) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—`r edu_none`—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table @@@, `r edu_occ$formal[edu_occ$education_level == "Total"]` respondents reported being formally employed, while `r edu_occ$ownbusiness[edu_occ$education_level == "Total"]` indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, `r edu_occ$informal[edu_occ$education_level == "Total"]` were employed in the informal sector, and `r edu_occ$unemployed[edu_occ$education_level == "Total"]` of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (`r  edu_occ_nat$Lesotho$unemployed[edu_occ_nat$Lesotho$education_level == "Total"]`). On the other hand, the highest proportions of Malawian (`r edu_occ_nat$Malawi$informal[edu_occ_nat$Malawi$education_level == "Total"]`), Mozambican (`r edu_occ_nat$Mozambique$informal[edu_occ_nat$Mozambique$education_level == "Total"]`), and Zimbabwean (`r edu_occ_nat$Zimbabwe$informal[edu_occ_nat$Zimbabwe$education_level == "Total"]`) respondents were engaged in informal employment. For respondents classified under 'Other' nationalities, the largest share was found to be formally employed. 
+
+```{r echo = FALSE, warning = FALSE, message = FALSE, eval=FALSE}
+ raw_data_c %>%
+  filter(!is.na(occupation), 
+         !is.na(education_level), 
+         nationality_recode == "Other",
+        nationality != "south_africa"
+         ) %>% 
+  tabyl(education_level,occupation) %>%
+  adorn_totals("row") %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting() %>% 
+  adorn_ns("rear")
+```
+## SECTION B: Healthcare Needs & Usage.
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# splitting the dataset from qn1 - qn 8 
+data_sectionb <-
+  raw_data_c %>% 
+  select (
+    `_id`,
+    nationality,
+    nationality_recode,
+    country_res,
+    age,
+    gender,
+    lived_in_sa,
+    occupation,
+    education_level,
+    access_quality,
+    routine_checkups
+  )
+
+
+qn_8_statements <-
+  data_sectionb %>% 
+  pivot_longer(
+    cols = c(education_level,access_quality,routine_checkups),
+    names_to = "Statement",
+    values_to = "Level"
+  )
+
+qn_8_statements %>% 
+  group_by(Statement) %>% 
+  summarise(distinct_levels = n_distinct(Level)) 
+
+```
+
 
 Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
 
@@ -402,6 +469,7 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
 ```
+
 
 ## SECTION C: Willingness to sign up for the product.
 
