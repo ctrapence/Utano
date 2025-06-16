@@ -236,7 +236,7 @@ raw_data_c <-
 
 ```
 
-```{r echo = FALSE , warning = FALSE, message = FALSE}
+```{r echo = FALSE , warning = FALSE, message = FALSE, eval=FALSE}
 
 # Current location by nationality
   raw_data_c %>% 
@@ -254,7 +254,7 @@ raw_data_c <-
 
 ```
 
-```{r echo = FALSE, warning = FALSE, message = FALSE}
+```{r echo = FALSE, warning = FALSE, message = FALSE, eval=FALSE}
 # Length of stay in South Africa
 
 raw_data_c %>%
@@ -314,11 +314,26 @@ raw_data_c %>%
 
 Fifty percent of the non-South African nationalities respondents have been in South Africa for over five years while the second largest proportion of 37.5% have been in lived in South Africa for 1 - 5 yrs followed by those who have lived for 6 months - 12 months at 9.1% and then those that have been in South Africa for less than six months making up the remaining 3.4%. When the length of stay in South Africa was disaggregated by gender there did not seem to be a significant difference in the proportions by length of stay. However, disaggregating the length of stay by nationality, more Zimbabweans and Basotho tended to have been in South Africa for over 5 years (61.2% and 50% respectively) while a larger percentage of Malawians and Mozambicans indicated having lived in South Africa for 1 - 5 years.
 
-
 ```{r}
+# education levels and occupation level 
+
+raw_data_c %>% 
+  filter(!is.na(education_level))  %>% 
+  summarise('Education Level' = n()) %>% 
+  mutate(
+    Percent = round(('Education Level'/sum('Education Level')) * 100, 1),  
+    Percent = paste0(Percent, "%")
+  )
+  
+```
+
+
+The education level and  respondents' current occupation were asked. 
+```{r echo = FALSE, warning = FALSE, message = FALSE}
 #Occupation and Education level by Naionality and Gender 
 
-raw_data_c %>%
+edu_occ <- 
+  raw_data_c %>%
   filter(!is.na(occupation), 
          !is.na(education_level)) %>% 
   tabyl(education_level,occupation) %>%
@@ -326,7 +341,12 @@ raw_data_c %>%
   adorn_percentages("row") %>%
   adorn_pct_formatting()  
   
-raw_data_c %>%
+
+edu_occ %>% 
+  gt()
+
+edu_occ_nat <- 
+  raw_data_c %>%
   filter(!is.na(occupation), 
          !is.na(education_level)) %>% 
   tabyl(education_level,occupation, nationality_recode) %>%
@@ -334,7 +354,8 @@ raw_data_c %>%
   adorn_percentages("row") %>%
   adorn_pct_formatting()  
 
-raw_data_c %>%
+edu_occ_gender <- 
+  raw_data_c %>%
   filter(!is.na(occupation), 
          !is.na(education_level),
          !is.na(gender)) %>% 
