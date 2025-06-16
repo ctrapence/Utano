@@ -208,11 +208,11 @@ The overall average age for the survey respondents was `r avg_age` years. The fe
 
 current_place <- 
   raw_data_c %>% 
-  filter(country_res == "south_africa") %>% 
+  filter(country_res == "south_africa",!is.na(current_location) )%>% 
   group_by(current_location) %>% 
   summarise(distinct_location = n()) %>% 
   mutate(
-    Percent = round((distinct_location/sum(distinct_location)) * 100, 1),  
+    Percent = round((distinct_location/sum(distinct_location)) * 100, 0),  
     Percent = paste0(Percent, "%")
   ) %>% 
   rename(
@@ -221,6 +221,7 @@ current_place <-
 
 # table has 2 places called capetown/City of Cape Town. Are these the same? 
 current_place %>% 
+    arrange(desc(Frequency)) %>% 
  gt()
 
 
@@ -350,12 +351,14 @@ edu_none <-
 
 edu_occ <- 
   raw_data_c %>%
+    mutate(education_level=str_to_sentence(education_level),occupation=str_to_sentence(occupation)) %>% 
   filter(!is.na(occupation), 
          !is.na(education_level)) %>% 
-  tabyl(education_level,occupation) %>%
+    rename(Education=education_level) %>% 
+  tabyl(Education,occupation) %>%
   adorn_totals("row") %>%
   adorn_percentages("row") %>%
-  adorn_pct_formatting()  
+  adorn_pct_formatting(digits = 0)  
   
 
 edu_occ %>% 
@@ -365,23 +368,28 @@ edu_occ %>%
 
 edu_occ_nat <- 
   raw_data_c %>%
+    mutate(education_level=str_to_sentence(education_level),occupation=str_to_sentence(occupation)) %>% 
   filter(!is.na(occupation), 
          !is.na(education_level)) %>% 
-  tabyl(education_level,occupation, nationality_recode) %>%
+    rename(Education=education_level) %>% 
+  tabyl(Education,occupation, nationality_recode) %>%
   adorn_totals("row") %>%
   adorn_percentages("row") %>%
-  adorn_pct_formatting()  
+  adorn_pct_formatting(digits = 0)  
 
 edu_occ_gender <- 
   raw_data_c %>%
+  mutate(education_level=str_to_sentence(education_level),occupation=str_to_sentence(occupation)) %>% 
   filter(!is.na(occupation), 
          !is.na(education_level),
          !is.na(gender)) %>% 
-  tabyl(education_level,occupation,gender) %>%
+  rename(Education=education_level) %>% 
+  tabyl(Education,occupation,gender) %>%
   adorn_totals("row") %>%
   adorn_percentages("row") %>%
-  adorn_pct_formatting()  %>% 
+  adorn_pct_formatting(digits = 0)  %>% 
   adorn_ns("rear")
+
   
 
 
@@ -396,10 +404,12 @@ Overall, the majority of respondents have attained either tertiary (`r tertiary_
          nationality_recode == "Other",
         nationality != "south_africa"
          ) %>% 
-  tabyl(education_level,occupation) %>%
+    mutate(education_level=str_to_sentence(education_level),occupation=str_to_sentence(occupation)) %>% 
+    rename(Education=education_level) %>% 
+  tabyl(Education,occupation) %>%
   adorn_totals("row") %>%
   adorn_percentages("row") %>%
-  adorn_pct_formatting() %>% 
+  adorn_pct_formatting(digits = 0) %>% 
   adorn_ns("rear")
 ```
 ## SECTION B: Healthcare Needs & Usage.
@@ -493,7 +503,7 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-
+## Choosing a healthcare provider based on Gender
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",gender_pref!="NA") %>% 
    mutate(gender_pref=str_to_sentence(gender_pref),gender=str_to_sentence(gender)) %>% 
@@ -508,13 +518,14 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
+## Choosing a healthcare provider based on Availablity of Key population Services
 
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
    mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
   mutate(keypop_services=ifelse(keypop_services=="Dontknow","Dont know",keypop_services))%>% 
-  rename(keypopulation=keypop_services) %>% 
-  tabyl(keypopulation,gender) %>% 
+  rename(`Key population`=keypop_services) %>% 
+  tabyl(`Key population`,gender) %>% 
   adorn_totals(where = "col") %>%  
    adorn_totals(where = "row") %>%             # Optional: add total row
   adorn_percentages("col") %>%                # Calculate row percentages
@@ -524,3 +535,21 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   autofit()
 
 ```
+
+## Years of Clinical Experience
+```{r warning=FALSE,message=FALSE,echo=FALSE}
+
+raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
+   mutate(years_experience=str_to_sentence(years_experience),gender=str_to_sentence(gender)) %>% 
+  mutate(keypop_services=ifelse(years_experience=="Dontknow","Dont know",years_experience))%>% 
+  rename(`Years of experience`=years_experience) %>% 
+  tabyl(`Years of experience`,gender) %>% 
+  adorn_totals(where = "col") %>%  
+   adorn_totals(where = "row") %>%             # Optional: add total row
+  adorn_percentages("col") %>%                # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>% 
+  flextable() %>% 
+  autofit()
+```
+
