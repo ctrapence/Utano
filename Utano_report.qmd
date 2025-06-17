@@ -554,4 +554,51 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
 ```
+## Preferred Payment Options
+When asked about their preferred payment method for healthcare services, cash emerged as the most commonly selected option, with 40% of respondents indicating this preference. This was followed by card payments, selected by 26%, and insurance, chosen by 21% of respondents. Prepaid options were the least preferred, with only 12% of participants opting for this method.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(payment_option)) %>% 
+  mutate(payment_option=if_else(payment_option=="na","cash",payment_option)) %>% 
+  mutate(payment_option=str_to_sentence(payment_option)) %>% 
+  tabyl(payment_option ) %>% 
+  adorn_totals() %>% 
+  rename(`Payment Option`=payment_option) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
+```
+When asked about their preferred subscription method for healthcare services, the majority of respondents (46%) indicated a preference for monthly subscriptions, suggesting a favorability toward shorter, more flexible payment cycles. This was followed by one-time subscriptions at 20%, and annual subscriptions at 16%.Less commonly selected were quarterly and biannual subscriptions, accounting for 12% and 6% of responses, respectively.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+
+raw_data_c %>%
+  filter(!is.na(subscription_type)) %>% 
+  mutate(subscription_type=str_to_sentence(subscription_type)) %>% 
+  tabyl(subscription_type ) %>% 
+  adorn_totals() %>% 
+  rename(`Subscription Option`=subscription_type) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
+```
+
+When asked about their preferred method of subscribing to a healthcare service, 44% of respondents favored an assisted subscription, indicating a preference for guided or in-person support. Online subscriptions were selected by 35%, demonstrating a growing acceptance of digital platforms for managing healthcare enrollment. Meanwhile, 21% preferred to subscribe through their employer.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(subscription_method)) %>% 
+  mutate(subscription_method=str_to_sentence(subscription_method)) %>% 
+  tabyl(subscription_method ) %>% 
+  adorn_totals() %>% 
+  rename(`Subscription Method`=subscription_method) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
+```
 
