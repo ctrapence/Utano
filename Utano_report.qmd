@@ -601,4 +601,29 @@ raw_data_c %>%
              percent="Percentage")
 
 ```
+A total of 376 subscriptions were recorded. Most were in the 100+ ZAR (129; 34%) and 50–59 ZAR (75; 20%) ranges, followed by 10–19 ZAR (65; 17%), 30–39 ZAR (45; 12%), 20–29 ZAR (41; 11%), and 40–49 ZAR (21; 6%). Within the 100+ ZAR range, online accounted for 57 (44%), assisted 49 (30%), and employer 23 (29%). In the 50–59 ZAR band, assisted made up 34 (21%), employer 17 (21%), and online 24 (18%). Lower price tiers were dominated by assisted subscriptions, especially in the 10–19 ZAR category with 38 (23%). Online subscriptions increased progressively with price, peaking in the highest bracket.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(subscription_method),willingness_to_pay!="NA_" )%>% 
+  mutate(subscription_method=str_to_sentence(subscription_method)) %>% 
+  tabyl(subscription_method,willingness_to_pay ) %>% 
+  adorn_totals() %>% 
+  rename(`Subscription Method`=subscription_method) %>% 
+ # Optional: add total row
+  adorn_percentages("row") %>%  
+  # Calculate row percentages
+  adorn_pct_formatting(digits = 0) %>%        # Format percentages
+  adorn_ns(position = "front") %>% 
+  flextable() %>% 
+  set_header_labels(`10`="10-19 ZAR",
+                    `20`="20-29 ZAR",
+                    `30`="30-39 ZAR",
+                    `40`="40-49 ZAR",
+                    `50`="50-59 ZAR",
+                    `100`="100+ ZAR") %>% 
+  autofit()
+
+```
+
 
