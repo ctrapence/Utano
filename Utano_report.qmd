@@ -39,16 +39,16 @@ count_yes <-
 
 count_no <- raw_data %>%
   filter(consent == "No" ) %>%
-  summarise(Count_no = n()) %>%
-  pull(Count_no)
-
-print(count_no)
+  summarise(Count_no = n()) 
+#%>%  pull(Count_no)
+#print(count_no)
 
 count_missing <- 
   raw_data %>%
   filter(consent == "Yes" & is.na(nationality)) %>%
-  summarise(count_missing = n()) %>%
-  pull(count_missing)
+  summarise(count_missing = n()) 
+#%>%
+  #pull(count_missing)
 
 # Total achievement from the sample target of 385
 
