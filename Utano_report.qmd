@@ -16,6 +16,7 @@ editor: visual
   library(officer)
   library(flextable)
   library(gt)
+  library(paletteer)
 
 ```
 
@@ -413,6 +414,15 @@ Overall, the majority of respondents have attained either tertiary (`r tertiary_
 
 ## SECTION B: Healthcare Needs & Usage.
 
+Measuring healthcare importance and usage.
+
+To assess the importance placed on healthcare and its utilization, the target population was asked to respond to the following three statements:
+
+- Access to quality healthcare is essential for me to live a productive and fulfilling life.
+- I will do whatever it takes to ensure access to healthcare for myself and my family.
+- I go for health check-ups even when I am not feeling unwell.
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # splitting the dataset from qn1 - qn 8 
 data_sectionb <-
@@ -428,6 +438,7 @@ data_sectionb <-
     occupation,
     education_level,
     access_quality,
+    ensure_access,
     routine_checkups
   )
 
@@ -435,16 +446,115 @@ data_sectionb <-
 qn_8_statements <-
   data_sectionb %>% 
   pivot_longer(
-    cols = c(education_level,access_quality,routine_checkups),
+    cols = c(access_quality,ensure_access, routine_checkups),
     names_to = "Statement",
-    values_to = "Level"
+    values_to = "Response"
   )
 
-qn_8_statements %>% 
-  group_by(Statement) %>% 
-  summarise(distinct_levels = n_distinct(Level)) 
+qn_8_table <-
+  qn_8_statements %>% 
+  filter(!is.na(Response)) %>% 
+  group_by(#nationality_recode,gender,
+    Statement,Response) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Proportion = round(Count/sum(Count) * 100,0))
+
+
+
+qn_8_table %>% 
+  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to quality healthcare is essential",
+                               Statement  == "ensure_access" ~ "I will do anything to ensure access to healthcare",
+                               Statement == "routine_checkups" ~ "I go for health check-ups even when I am well" ), 
+         Response = case_when(Response == "agree" ~ "Agree",
+                              Response == "disagree" ~ "Disagree",
+                              Response == "dontknow" ~ "Don't Know")) %>% 
+  ggplot() + 
+  aes (y = Statement, x = Proportion, fill = Response)  + 
+  geom_col(position = "fill") +
+  geom_text(aes(label = ifelse(Proportion > 5, paste0(round(Proportion), "%"),"")),
+                position = position_fill(vjust = 0.5), 
+                color = "white",
+                size = 3,
+                fontface = "bold") +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    title = "Percent Distribution of Responses by Statements",
+    x = "Statement",
+    y = "Percentage",
+    fill = "Response"
+  ) +
+  theme_minimal()
+
+routine_checks_yes <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "agree") %>%
+  pull(Proportion)
+
+routine_checks_no <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "disagree") %>%
+  pull(Proportion)
+
+routine_checks_dn <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "dontknow") %>%
+  pull(Proportion)
 
 ```
+
+The respondents' overwhelming agreement with "access to quality health is essential" and "I will do anything to ensure access to healthcare" shows the high value on access to quality healthcare. Such strong sentiments suggest that the targetted population placess strong importance on healthcare that is of quality, and is also accessible and will be willing to engage with service that offers such qualities. "I go for health check-ups even when I am well”, which assesses health-seeking and preventative health behavior, received `r routine_checks_yes` % agreement, `r routine_checks_no` % disagreement, and `r routine_checks_dn` % uncertainty, reflecting a more mixed view compared to the consistently high agreement observed in the other two statements. This disparity may point to limitations in preventative health practices, potentially driven by affordability or access barriers. It suggests that a significant portion of the population may only seek healthcare when they are already ill, rather than engaging in routine preventive care.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+
+qn_8_table_nat <- 
+  qn_8_statements %>% 
+  filter(!is.na(Response)) %>% 
+  group_by(nationality_recode,
+    Statement,Response) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Proportion = round(Count/sum(Count) * 100,0))
+
+
+
+qn_8_table_nat %>% 
+  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to quality healthcare is essential",
+                               Statement  == "ensure_access" ~ "I will do anything to ensure access to healthcare",
+                               Statement == "routine_checkups" ~ "I go for health check-ups even when I am well" ), 
+         Response = case_when(Response == "agree" ~ "Agree",
+                              Response == "disagree" ~ "Disagree",
+                              Response == "dontknow" ~ "Don't Know")) %>% 
+  ggplot() + 
+  aes (y = Statement, x = Proportion, fill = Response)  + 
+  geom_col(position = "fill") +
+  geom_text(aes(label = ifelse(Proportion > 20, paste0(round(Proportion), "%"),"")),
+                position = position_fill(vjust = 0.5), 
+                color = "white",
+                size = 3,
+                fontface = "bold") +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    title = "Percent Distribution By Nationality of Responses by Statements",
+    x = "Percent",
+    y = "Statement",
+    fill = "Response"
+  ) +
+  facet_wrap("nationality_recode", nrow = 1) +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_blank(),   # removes x-axis title
+    axis.text.x = element_blank(),    # removes x-axis labels (ticks)
+    axis.ticks.x = element_blank()    # removes x-axis tick marks
+  )
+
+
+
+```
+
+
+An analysis of responses to the healthcare statements by nationality reflects a consistent emphasis across most groups on the importance of accessing quality healthcare and ensuring healthcare access. As presented in Table @@@, Basotho, Zimbabwean, and 'Other' nationalities are notably less likely to seek routine health check-ups compared to their Malawian and Mozambican counterparts." 
 
 ## SECTION C: Willingness to sign up for the product.
 
@@ -536,7 +646,8 @@ raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>%
                       ggplot() +
   aes(x = service_type, fill = gender) +
   geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
+  #scale_fill_hue(direction = 1) +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
   theme_linedraw() +
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
@@ -553,7 +664,8 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
                       ggplot() +
   aes(x = service_type, fill = occupation) +
   geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
+  #scale_fill_hue(direction = 1) +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
   theme_linedraw() +
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
