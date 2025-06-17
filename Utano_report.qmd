@@ -347,7 +347,7 @@ edu_none <-
 
 
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
-#Occupation and Education level by Naionality and Gender 
+#Occupation and Education level by Nationality and Gender 
 
 edu_occ <- 
   raw_data_c %>%
@@ -483,11 +483,9 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
 
 ## SECTION C: Willingness to sign up for the product.
 
-Language Preference and Choice of Healthcare Provider – Gender Disaggregation
+### Language Preference and Choice of Healthcare Provider – Gender Disaggregation
 
-The majority of both female and male respondents indicated that language plays a significant role in their choice of healthcare provider, with 163 females (50%) and 160 males (50%) agreeing with this statement. A smaller proportion disagreed—17 females (57%) vs. 13 males (43%)—suggesting that more females than males feel language is important, though the numbers remain relatively low. Among those who were uncertain, the response was balanced, with 6 females (46%) and 7 males (54%) indicating they didn’t know whether language influences their provider choice. Overall, 366 respondents participated in this assessment, with a slightly higher representation of females (51%) than males (49%).
-
-This suggests that language is a key consideration for both genders when selecting a healthcare provider, highlighting the importance of language-concordant care in health service delivery (Table below)
+When asked whether language influences their decision when choosing a healthcare provider, the majority of respondents affirmed its importance. Specifically, 88% of females and 89% of males agreed that language plays a role in their decision-making, resulting in an overall agreement of 88%. This suggests that language is a key consideration for both females and males when selecting a healthcare provider, emphasizing the critical importance of language-concordant care in health service delivery (Table below)
 
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",language_pref!="NA") %>% 
@@ -503,7 +501,10 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-## Choosing a healthcare provider based on Gender
+###   Choosing a healthcare provider based on Gender
+
+When asked whether they choose a healthcare provider based on gender, 61% of females and 64% of males agreed with the statement, suggesting that gender plays a role in provider selection for a significant portion of both groups. Overall, 62% of respondents agreed.
+  
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",gender_pref!="NA") %>% 
    mutate(gender_pref=str_to_sentence(gender_pref),gender=str_to_sentence(gender)) %>% 
@@ -518,8 +519,8 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-## Choosing a healthcare provider based on Availablity of Key population Services
-
+###  Choosing a healthcare provider based on Availablity of Key population Services
+When considering the availability of key population services as a factor in choosing a healthcare provider, a majority of respondents across both genders agreed that it influences their choice. Specifically, 67% of females and 78% of males agreed, resulting in an overall agreement of 73%. This indicates a strong preference for providers that offer services tailored to key populations.
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
    mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
@@ -536,12 +537,13 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
 
 ```
 
-## Years of Clinical Experience
+### Years of Clinical Experience
+The majority of respondents indicated that years of clinical experience play a significant role in their choice of healthcare provider. 79% of females and 85% of males agreed with this statement, contributing to an overall agreement rate of 82%. This reflects a strong and consistent preference across both genders for experienced healthcare professionals.
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 
-raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
+raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",years_experience!="NA") %>% 
    mutate(years_experience=str_to_sentence(years_experience),gender=str_to_sentence(gender)) %>% 
-  mutate(keypop_services=ifelse(years_experience=="Dontknow","Dont know",years_experience))%>% 
+  mutate(years_experience=ifelse(years_experience=="Dontknow","Dont know",years_experience))%>% 
   rename(`Years of experience`=years_experience) %>% 
   tabyl(`Years of experience`,gender) %>% 
   adorn_totals(where = "col") %>%  
