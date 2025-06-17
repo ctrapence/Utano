@@ -16,7 +16,6 @@ editor: visual
   library(officer)
   library(flextable)
   library(gt)
-  library(paletteer)
 
 ```
 
@@ -40,16 +39,16 @@ count_yes <-
 
 count_no <- raw_data %>%
   filter(consent == "No" ) %>%
-  summarise(Count_no = n()) %>%
-  pull(Count_no)
-
-print(count_no)
+  summarise(Count_no = n()) 
+#%>%  pull(Count_no)
+#print(count_no)
 
 count_missing <- 
   raw_data %>%
   filter(consent == "Yes" & is.na(nationality)) %>%
-  summarise(count_missing = n()) %>%
-  pull(count_missing)
+  summarise(count_missing = n()) 
+#%>%
+  #pull(count_missing)
 
 # Total achievement from the sample target of 385
 
@@ -345,8 +344,10 @@ edu_none <-
   pull(Percent)
 ```
 
+
+
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
-#Occupation and Education level by Naionality and Gender 
+#Occupation and Education level by Nationality and Gender 
 
 edu_occ <- 
   raw_data_c %>%
@@ -394,7 +395,7 @@ edu_occ_gender <-
 
 ```
 
-Overall, the majority of respondents have attained either tertiary (`r tertiary_per`) or secondary (`r secondary_per`) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—`r edu_none`—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table \@\@\@, `r edu_occ$formal[edu_occ$education_level == "Total"]` respondents reported being formally employed, while `r edu_occ$ownbusiness[edu_occ$education_level == "Total"]` indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, `r edu_occ$informal[edu_occ$education_level == "Total"]` were employed in the informal sector, and `r edu_occ$unemployed[edu_occ$education_level == "Total"]` of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (`r  edu_occ_nat$Lesotho$unemployed[edu_occ_nat$Lesotho$education_level == "Total"]`). On the other hand, the highest proportions of Malawian (`r edu_occ_nat$Malawi$informal[edu_occ_nat$Malawi$education_level == "Total"]`), Mozambican (`r edu_occ_nat$Mozambique$informal[edu_occ_nat$Mozambique$education_level == "Total"]`), and Zimbabwean (`r edu_occ_nat$Zimbabwe$informal[edu_occ_nat$Zimbabwe$education_level == "Total"]`) respondents were engaged in informal employment. For respondents classified under 'Other' nationalities, the largest share was found to be formally employed.
+Overall, the majority of respondents have attained either tertiary (`r tertiary_per`) or secondary (`r secondary_per`) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—`r edu_none`—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table @@@, `r edu_occ$formal[edu_occ$education_level == "Total"]` respondents reported being formally employed, while `r edu_occ$ownbusiness[edu_occ$education_level == "Total"]` indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, `r edu_occ$informal[edu_occ$education_level == "Total"]` were employed in the informal sector, and `r edu_occ$unemployed[edu_occ$education_level == "Total"]` of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (`r  edu_occ_nat$Lesotho$unemployed[edu_occ_nat$Lesotho$education_level == "Total"]`). On the other hand, the highest proportions of Malawian (`r edu_occ_nat$Malawi$informal[edu_occ_nat$Malawi$education_level == "Total"]`), Mozambican (`r edu_occ_nat$Mozambique$informal[edu_occ_nat$Mozambique$education_level == "Total"]`), and Zimbabwean (`r edu_occ_nat$Zimbabwe$informal[edu_occ_nat$Zimbabwe$education_level == "Total"]`) respondents were engaged in informal employment. For respondents classified under 'Other' nationalities, the largest share was found to be formally employed. 
 
 ```{r echo = FALSE, warning = FALSE, message = FALSE, eval=FALSE}
  raw_data_c %>%
@@ -411,16 +412,7 @@ Overall, the majority of respondents have attained either tertiary (`r tertiary_
   adorn_pct_formatting(digits = 0) %>% 
   adorn_ns("rear")
 ```
-
 ## SECTION B: Healthcare Needs & Usage.
-
-Measuring healthcare importance and usage.
-
-To assess the importance placed on healthcare and its utilization, the target population was asked to respond to the following three statements:
-
-- Access to quality healthcare is essential for me to live a productive and fulfilling life.
-- I will do whatever it takes to ensure access to healthcare for myself and my family.
-- I go for health check-ups even when I am not feeling unwell.
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -438,7 +430,6 @@ data_sectionb <-
     occupation,
     education_level,
     access_quality,
-    ensure_access, 
     routine_checkups
   )
 
@@ -446,133 +437,22 @@ data_sectionb <-
 qn_8_statements <-
   data_sectionb %>% 
   pivot_longer(
-    cols = c(access_quality,ensure_access, routine_checkups),
+    cols = c(education_level,access_quality,routine_checkups),
     names_to = "Statement",
-    values_to = "Response"
+    values_to = "Level"
   )
 
-qn_8_table <-
-  qn_8_statements %>% 
-  filter(!is.na(Response)) %>% 
-  group_by(#nationality_recode,gender,
-    Statement,Response) %>% 
-  summarise(Count = n()) %>% 
-  mutate(Proportion = round(Count/sum(Count) * 100,0))
-
-
-
-qn_8_table %>% 
-  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to quality healthcare is essential",
-                               Statement  == "ensure_access" ~ "I will do anything to ensure access to healthcare",
-                               Statement == "routine_checkups" ~ "I go for health check-ups even when I am well" ), 
-         Response = case_when(Response == "agree" ~ "Agree",
-                              Response == "disagree" ~ "Disagree",
-                              Response == "dontknow" ~ "Don't Know")) %>% 
-  ggplot() + 
-  aes (y = Statement, x = Proportion, fill = Response)  + 
-  geom_col(position = "fill") +
-  geom_text(aes(label = ifelse(Proportion > 5, paste0(round(Proportion), "%"),"")),
-                position = position_fill(vjust = 0.5), 
-                color = "white",
-                size = 3,
-                fontface = "bold") +
-  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
-  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
-  labs(
-    title = "Percent Distribution of Responses by Statements",
-    x = "Statement",
-    y = "Percentage",
-    fill = "Response"
-  ) +
-  theme_minimal()
-
-
+qn_8_statements %>% 
+  group_by(Statement) %>% 
+  summarise(distinct_levels = n_distinct(Level)) 
 
 ```
-
-The respondents' overwhelming agreement with "access to quality health is essential" and "I will do anything to ensure access to healthcare" shows the high value on access to quality healthcare. Such strong sentiments suggest that the targetted population placess strong importance on healthcare that is of quality, and is also accessible and will be willing to engage with service that offers such qualities. "I go for health check-ups even when I am well”, which assesses health-seeking and preventative health behavior, received `r`% agreement, `r`% disagreement, and `r`% uncertainty, reflecting a more mixed view compared to the consistently high agreement observed in the other two statements. This disparity may point to limitations in preventative health practices, potentially driven by affordability or access barriers. It suggests that a significant portion of the population may only seek healthcare when they are already ill, rather than engaging in routine preventive care.
-
-```{r}
-qn_8_table_nat_gender <- 
-  qn_8_statements %>% 
-  filter(!is.na(Response)) %>% 
-  group_by(nationality_recode,
-    Statement,Response) %>% 
-  summarise(Count = n()) %>% 
-  mutate(Proportion = round(Count/sum(Count) * 100,0))
-
-
-
-qn_8_table_nat_gender %>% 
-  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to quality healthcare is essential",
-                               Statement  == "ensure_access" ~ "I will do anything to ensure access to healthcare",
-                               Statement == "routine_checkups" ~ "I go for health check-ups even when I am well" ), 
-         Response = case_when(Response == "agree" ~ "Agree",
-                              Response == "disagree" ~ "Disagree",
-                              Response == "dontknow" ~ "Don't Know")) %>% 
-  ggplot() + 
-  aes (y = Statement, x = Proportion, fill = Response)  + 
-  geom_col(position = "fill") +
-  geom_text(aes(label = ifelse(Proportion > 5, paste0(round(Proportion), "%"),"")),
-                position = position_fill(vjust = 0.5), 
-                color = "white",
-                size = 3,
-                fontface = "bold") +
-  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
-  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
-  labs(
-    title = "Percent Distribution of Responses by Statements",
-    x = "Statement",
-    y = "Percentage",
-    fill = "Response"
-  ) +
-  facet_wrap("nationality_recode", nrow = 1) +
-  theme_minimal()
-```
-
-
 ## SECTION C: Willingness to sign up for the product.
 
-Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
 
-```{r echo=FALSE,warning=FALSE,message=FALSE}
-raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
-  mutate(gender=str_to_sentence(gender))%>% 
-                      ggplot() +
-  aes(x = service_type, fill = gender) +
-  geom_bar(position = "dodge") +
-  #scale_fill_pa(direction = 1) +
-  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
-  theme_linedraw() +
-  theme(legend.justification = "right")+
-   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
-  
+### Language Preference and Choice of Healthcare Provider
 
-```
-
-Understanding how different Nationality engage with various service types can provide valuable insights into consumer preferences and accessibility.The chart below highlights how employment status influence service preferences. Those in the informal sector predominantly chose Gold while those in the formal sector,show stronger preference in Lithium, Platinum and Silver services.
-
-```{r echo=FALSE,warning=FALSE,message=FALSE}
-raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA") %>% 
-  mutate(occupation=as.factor(str_to_sentence(occupation))) %>% 
-  mutate(occupation=fct_relevel(occupation, "informal","formal","ownbusiness","unemployed"))%>% 
-                      ggplot() +
-  aes(x = service_type, fill = occupation) +
-  geom_bar(position = "dodge") +
-  #scale_fill_hue(direction = 1) +
-  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
-  theme_linedraw() +
-  theme(legend.justification = "right")+
-   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
-```
-
-
-
-Language Preference and Choice of Healthcare Provider – Gender Disaggregation
-
-The majority of both female and male respondents indicated that language plays a significant role in their choice of healthcare provider, with 163 females (50%) and 160 males (50%) agreeing with this statement. A smaller proportion disagreed—17 females (57%) vs. 13 males (43%)—suggesting that more females than males feel language is important, though the numbers remain relatively low. Among those who were uncertain, the response was balanced, with 6 females (46%) and 7 males (54%) indicating they didn’t know whether language influences their provider choice. Overall, 366 respondents participated in this assessment, with a slightly higher representation of females (51%) than males (49%).
-
-This suggests that language is a key consideration for both genders when selecting a healthcare provider, highlighting the importance of language-concordant care in health service delivery (Table below)
+When asked whether language influences their decision when choosing a healthcare provider, the majority of respondents affirmed its importance. Specifically, 88% of females and 89% of males agreed that language plays a role in their decision-making, resulting in an overall agreement of 88%. This suggests that language is a key consideration for both females and males when selecting a healthcare provider, emphasizing the critical importance of language-concordant care in health service delivery (Table below)
 
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",language_pref!="NA") %>% 
@@ -588,7 +468,10 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-## Choosing a healthcare provider based on Gender
+###   Gender Preference and Choice of Healthcare Provider
+
+When asked whether they choose a healthcare provider based on gender, 61% of females and 64% of males agreed with the statement, suggesting that gender plays a role in provider selection for a significant portion of both groups. Overall, 62% of respondents agreed.
+  
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",gender_pref!="NA") %>% 
    mutate(gender_pref=str_to_sentence(gender_pref),gender=str_to_sentence(gender)) %>% 
@@ -603,8 +486,8 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-## Choosing a healthcare provider based on Availablity of Key population Services
-
+###  Choosing a healthcare provider based on Availablity of Key population Services
+When considering the availability of key population services as a factor in choosing a healthcare provider, a majority of respondents across both genders agreed that it influences their choice. Specifically, 67% of females and 78% of males agreed, resulting in an overall agreement of 73%. This indicates a strong preference for providers that offer services tailored to key populations.
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
    mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
@@ -621,12 +504,13 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
 
 ```
 
-## Years of Clinical Experience
+### Years of Clinical Experience and Choice of Healthcare Provider 
+The majority of respondents indicated that years of clinical experience play a significant role in their choice of healthcare provider. 79% of females and 85% of males agreed with this statement, contributing to an overall agreement rate of 82%. This reflects a strong and consistent preference across both genders for experienced healthcare professionals.
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 
-raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
+raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",years_experience!="NA") %>% 
    mutate(years_experience=str_to_sentence(years_experience),gender=str_to_sentence(gender)) %>% 
-  mutate(keypop_services=ifelse(years_experience=="Dontknow","Dont know",years_experience))%>% 
+  mutate(years_experience=ifelse(years_experience=="Dontknow","Dont know",years_experience))%>% 
   rename(`Years of experience`=years_experience) %>% 
   tabyl(`Years of experience`,gender) %>% 
   adorn_totals(where = "col") %>%  
@@ -636,5 +520,85 @@ raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_ty
   adorn_ns(position = "front") %>% 
   flextable() %>% 
   autofit()
+```
+
+## Selecting  health services products 
+
+Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
+  mutate(gender=str_to_sentence(gender))%>% 
+                      ggplot() +
+  aes(x = service_type, fill = gender) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
+  
+
+```
+
+Understanding how different Nationality engage with various service types can provide valuable insights into consumer preferences and accessibility.The chart below highlights how employment status influence service preferences. Those in the informal sector predominantly chose Gold while those in the formal sector,show stronger preference in Lithium, Platinum and Silver services.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA") %>% 
+  mutate(occupation=as.factor(str_to_sentence(occupation))) %>% 
+  mutate(occupation=fct_relevel(occupation, "informal","formal","ownbusiness","unemployed"))%>% 
+                      ggplot() +
+  aes(x = service_type, fill = occupation) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
+```
+## Preferred Payment Options
+When asked about their preferred payment method for healthcare services, cash emerged as the most commonly selected option, with 40% of respondents indicating this preference. This was followed by card payments, selected by 26%, and insurance, chosen by 21% of respondents. Prepaid options were the least preferred, with only 12% of participants opting for this method.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(payment_option)) %>% 
+  mutate(payment_option=if_else(payment_option=="na","cash",payment_option)) %>% 
+  mutate(payment_option=str_to_sentence(payment_option)) %>% 
+  tabyl(payment_option ) %>% 
+  adorn_totals() %>% 
+  rename(`Payment Option`=payment_option) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
+```
+When asked about their preferred subscription method for healthcare services, the majority of respondents (46%) indicated a preference for monthly subscriptions, suggesting a favorability toward shorter, more flexible payment cycles. This was followed by one-time subscriptions at 20%, and annual subscriptions at 16%.Less commonly selected were quarterly and biannual subscriptions, accounting for 12% and 6% of responses, respectively.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+
+raw_data_c %>%
+  filter(!is.na(subscription_type)) %>% 
+  mutate(subscription_type=str_to_sentence(subscription_type)) %>% 
+  tabyl(subscription_type ) %>% 
+  adorn_totals() %>% 
+  rename(`Subscription Option`=subscription_type) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
+```
+
+When asked about their preferred method of subscribing to a healthcare service, 44% of respondents favored an assisted subscription, indicating a preference for guided or in-person support. Online subscriptions were selected by 35%, demonstrating a growing acceptance of digital platforms for managing healthcare enrollment. Meanwhile, 21% preferred to subscribe through their employer.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(subscription_method)) %>% 
+  mutate(subscription_method=str_to_sentence(subscription_method)) %>% 
+  tabyl(subscription_method ) %>% 
+  adorn_totals() %>% 
+  rename(`Subscription Method`=subscription_method) %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+  gt() %>% 
+  cols_label(n="Frequency",
+             percent="Percentage")
+
 ```
 

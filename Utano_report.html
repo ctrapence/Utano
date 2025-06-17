@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,12 +30,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Utano_report_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Utano_report_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Utano_report_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Utano_report_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Utano_report_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Utano_report_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Utano_report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Utano_report_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Utano_report_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="Utano_report_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
 <script src="Utano_report_files/libs/tabwid-1.1.3/tabwid.js"></script>
+
 
 
 </head>
@@ -105,11 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This report presents the latest findings from the Utano Market Survey, conducted by UlwaziHUB Consulting Services in South Africa. The survey, which targeted a diverse population, was administered online between May 30 and June 5. A total of 391 responses were recorded. However 384 have been considered as valid records while 3 are responses from participants that did not give consent to the survey. The remaining 3 have been considered as missing values. Thus, the achieved response rate is 99.7%. The respondents providing valuable insights into current market trends, healthcare access, and service preferences. The data collected serves as a critical foundation for understanding the needs and expectations of communities, and will inform the design and delivery of more inclusive and responsive health-related services.</p>
@@ -131,30 +94,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>                    Table 1: Distribution of Males and Females by Country</code></pre>
 </div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f14bd404{}.cl-f1444f40{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f1478dcc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f147a0e6{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0f0{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0f1{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0f2{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0fa{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0fb{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a0fc{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a104{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a105{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a106{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a10e{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a10f{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a110{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a118{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f147a119{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f14bd404"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f147a0e6"><p class="cl-f1478dcc"><span class="cl-f1444f40">Nationality</span></p></th><th class="cl-f147a0f0"><p class="cl-f1478dcc"><span class="cl-f1444f40">Female (n %)</span></p></th><th class="cl-f147a0f1"><p class="cl-f1478dcc"><span class="cl-f1444f40">Male (n %)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Zimbabwe</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">95  (60%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">63  (40%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Mozambique</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">26  (30%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">60  (70%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Lesotho</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">25  (52%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">23  (48%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">South africa</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">24  (55%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">20  (45%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Malawi</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">12  (55%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">10  (45%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Kenya</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">2  (40%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">3  (60%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0fc"><p class="cl-f1478dcc"><span class="cl-f1444f40">Nigeria</span></p></td><td class="cl-f147a104"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td><td class="cl-f147a105"><p class="cl-f1478dcc"><span class="cl-f1444f40">2 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Botswana</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Eswatini</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Gambia</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Other</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0fc"><p class="cl-f1478dcc"><span class="cl-f1444f40">Angola</span></p></td><td class="cl-f147a104"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td><td class="cl-f147a105"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a106"><p class="cl-f1478dcc"><span class="cl-f1444f40">Congo kinshasa</span></p></td><td class="cl-f147a10e"><p class="cl-f1478dcc"><span class="cl-f1444f40">2 (100%)</span></p></td><td class="cl-f147a10f"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Ghana</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Namibia</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">4 (100%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40">Tanzania</span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a0f2"><p class="cl-f1478dcc"><span class="cl-f1444f40"></span></p></td><td class="cl-f147a0fa"><p class="cl-f1478dcc"><span class="cl-f1444f40">1 (100%)</span></p></td><td class="cl-f147a0fb"><p class="cl-f1478dcc"><span class="cl-f1444f40">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f147a110"><p class="cl-f1478dcc"><span class="cl-f1444f40">Total</span></p></td><td class="cl-f147a118"><p class="cl-f1478dcc"><span class="cl-f1444f40">194  (51%)</span></p></td><td class="cl-f147a119"><p class="cl-f1478dcc"><span class="cl-f1444f40">185  (49%)</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-8ceea9ae{}.cl-8ce839fc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8ceadca2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8ceaf192{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf19c{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf19d{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf19e{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf1a6{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf1a7{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf1a8{width:1.381in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf1a9{width:1.202in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8ceaf1aa{width:1.033in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8ceea9ae"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8ceaf192"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Nationality</span></p></th><th class="cl-8ceaf19c"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Female (n %)</span></p></th><th class="cl-8ceaf19d"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Male (n %)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Zimbabwe</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">95  (60%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">63  (40%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Mozambique</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">26  (30%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">60  (70%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Lesotho</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">25  (52%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">23  (48%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">South africa</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">24  (55%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">20  (45%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Malawi</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">12  (55%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">10  (45%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Kenya</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">2  (40%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">3  (60%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Nigeria</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">2 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Botswana</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Eswatini</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Gambia</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Other</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Angola</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Congo kinshasa</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">2 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Ghana</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Namibia</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">4 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Tanzania</span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf19e"><p class="cl-8ceadca2"><span class="cl-8ce839fc"></span></p></td><td class="cl-8ceaf1a6"><p class="cl-8ceadca2"><span class="cl-8ce839fc">1 (100%)</span></p></td><td class="cl-8ceaf1a7"><p class="cl-8ceadca2"><span class="cl-8ce839fc">0   (0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8ceaf1a8"><p class="cl-8ceadca2"><span class="cl-8ce839fc">Total</span></p></td><td class="cl-8ceaf1a9"><p class="cl-8ceadca2"><span class="cl-8ce839fc">194  (51%)</span></p></td><td class="cl-8ceaf1aa"><p class="cl-8ceadca2"><span class="cl-8ce839fc">185  (49%)</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>A chi-square test of independence was conducted to examine the relationship between gender and nationality among participants. The analysis revealed a statistically significant association between gender and nationality,p = 0.002. This suggests that the distribution of gender differs significantly across nationalities in the dataset. The observed differences were supported by the cross-tabulated counts and row-wise percentages, with variations noted particularly in the proportions of males and females within each nationality group.</p>
 <p>The overall average age for the survey respondents was 35.1 years. The females’ average age was 35.4 years and the males’ average age was 34.6 years. Majority of the survey participants that currently lived in South Africa as shown in Table @@@ were based in Pretoria followed by Johannesburg and then Capetown which seems to be in line with the order of launching the business model in question with Pretoria being the city where the health service product will be launched first and followed by the rest of Gauteng. Looking at the participants’ current location by nationality indicated that the largest proportions of each of the focus nationalities (Zimbabwe, Mozambique, Lesotho, Malawi) currently reside in Pretoria.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="lxzqyhqefl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lxzqyhqefl table {
+<div id="hdjmcatuzz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hdjmcatuzz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lxzqyhqefl thead, #lxzqyhqefl tbody, #lxzqyhqefl tfoot, #lxzqyhqefl tr, #lxzqyhqefl td, #lxzqyhqefl th {
+#hdjmcatuzz thead, #hdjmcatuzz tbody, #hdjmcatuzz tfoot, #hdjmcatuzz tr, #hdjmcatuzz td, #hdjmcatuzz th {
   border-style: none;
 }
 
-#lxzqyhqefl p {
+#hdjmcatuzz p {
   margin: 0;
   padding: 0;
 }
 
-#lxzqyhqefl .gt_table {
+#hdjmcatuzz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -180,12 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_caption {
+#hdjmcatuzz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lxzqyhqefl .gt_title {
+#hdjmcatuzz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -197,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#lxzqyhqefl .gt_subtitle {
+#hdjmcatuzz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -209,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#lxzqyhqefl .gt_heading {
+#hdjmcatuzz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -221,13 +184,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_bottom_border {
+#hdjmcatuzz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_col_headings {
+#hdjmcatuzz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -242,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_col_heading {
+#hdjmcatuzz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -262,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lxzqyhqefl .gt_column_spanner_outer {
+#hdjmcatuzz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -274,15 +237,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#lxzqyhqefl .gt_column_spanner_outer:first-child {
+#hdjmcatuzz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lxzqyhqefl .gt_column_spanner_outer:last-child {
+#hdjmcatuzz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lxzqyhqefl .gt_column_spanner {
+#hdjmcatuzz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -294,11 +257,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#lxzqyhqefl .gt_spanner_row {
+#hdjmcatuzz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lxzqyhqefl .gt_group_heading {
+#hdjmcatuzz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -324,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#lxzqyhqefl .gt_empty_group_heading {
+#hdjmcatuzz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -339,15 +302,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#lxzqyhqefl .gt_from_md > :first-child {
+#hdjmcatuzz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lxzqyhqefl .gt_from_md > :last-child {
+#hdjmcatuzz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lxzqyhqefl .gt_row {
+#hdjmcatuzz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lxzqyhqefl .gt_stub {
+#hdjmcatuzz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -379,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lxzqyhqefl .gt_stub_row_group {
+#hdjmcatuzz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -393,15 +356,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#lxzqyhqefl .gt_row_group_first td {
+#hdjmcatuzz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lxzqyhqefl .gt_row_group_first th {
+#hdjmcatuzz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lxzqyhqefl .gt_summary_row {
+#hdjmcatuzz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -411,16 +374,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lxzqyhqefl .gt_first_summary_row {
+#hdjmcatuzz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_first_summary_row.thick {
+#hdjmcatuzz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lxzqyhqefl .gt_last_summary_row {
+#hdjmcatuzz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -430,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_grand_summary_row {
+#hdjmcatuzz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -440,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lxzqyhqefl .gt_first_grand_summary_row {
+#hdjmcatuzz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -450,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_last_grand_summary_row_top {
+#hdjmcatuzz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -460,11 +423,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_striped {
+#hdjmcatuzz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lxzqyhqefl .gt_table_body {
+#hdjmcatuzz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -473,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_footnotes {
+#hdjmcatuzz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -487,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_footnote {
+#hdjmcatuzz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -496,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lxzqyhqefl .gt_sourcenotes {
+#hdjmcatuzz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -510,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lxzqyhqefl .gt_sourcenote {
+#hdjmcatuzz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -518,160 +481,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lxzqyhqefl .gt_left {
+#hdjmcatuzz .gt_left {
   text-align: left;
 }
 
-#lxzqyhqefl .gt_center {
+#hdjmcatuzz .gt_center {
   text-align: center;
 }
 
-#lxzqyhqefl .gt_right {
+#hdjmcatuzz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lxzqyhqefl .gt_font_normal {
+#hdjmcatuzz .gt_font_normal {
   font-weight: normal;
 }
 
-#lxzqyhqefl .gt_font_bold {
+#hdjmcatuzz .gt_font_bold {
   font-weight: bold;
 }
 
-#lxzqyhqefl .gt_font_italic {
+#hdjmcatuzz .gt_font_italic {
   font-style: italic;
 }
 
-#lxzqyhqefl .gt_super {
+#hdjmcatuzz .gt_super {
   font-size: 65%;
 }
 
-#lxzqyhqefl .gt_footnote_marks {
+#hdjmcatuzz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lxzqyhqefl .gt_asterisk {
+#hdjmcatuzz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lxzqyhqefl .gt_indent_1 {
+#hdjmcatuzz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lxzqyhqefl .gt_indent_2 {
+#hdjmcatuzz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lxzqyhqefl .gt_indent_3 {
+#hdjmcatuzz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lxzqyhqefl .gt_indent_4 {
+#hdjmcatuzz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lxzqyhqefl .gt_indent_5 {
+#hdjmcatuzz .gt_indent_5 {
   text-indent: 25px;
+}
+
+#hdjmcatuzz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hdjmcatuzz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="Current location where respondent lives" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Current location where respondent lives</th>
+<th id="Current-location-where-respondent-lives" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Current location where respondent lives</th>
 <th id="Frequency" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frequency</th>
 <th id="Percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Bojanala Platinum District</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Buffalo City Metropolitan Municipality</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Capetown</td>
-<td class="gt_row gt_right" headers="Frequency">22</td>
-<td class="gt_row gt_right" headers="Percent">7.2%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Central Karoo District</td>
-<td class="gt_row gt_right" headers="Frequency">2</td>
-<td class="gt_row gt_right" headers="Percent">0.7%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Chris Hani District</td>
-<td class="gt_row gt_right" headers="Frequency">12</td>
-<td class="gt_row gt_right" headers="Percent">3.9%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">City of Cape Town Metropolitan Municipality</td>
-<td class="gt_row gt_right" headers="Frequency">2</td>
-<td class="gt_row gt_right" headers="Percent">0.7%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">City of Ekurhuleni Metropolitan Municipality</td>
-<td class="gt_row gt_right" headers="Frequency">8</td>
-<td class="gt_row gt_right" headers="Percent">2.6%</td>
+<td class="gt_row gt_left" headers="Current location where respondent lives">City of Tshwane Metropolitan Municipality</td>
+<td class="gt_row gt_right" headers="Frequency">191</td>
+<td class="gt_row gt_right" headers="Percent">63%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Current location where respondent lives">City of Johannesburg Metropolitan Municipality</td>
 <td class="gt_row gt_right" headers="Frequency">42</td>
-<td class="gt_row gt_right" headers="Percent">13.7%</td>
+<td class="gt_row gt_right" headers="Percent">14%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">City of Tshwane Metropolitan Municipality</td>
-<td class="gt_row gt_right" headers="Frequency">191</td>
-<td class="gt_row gt_right" headers="Percent">62.2%</td>
+<td class="gt_row gt_left" headers="Current location where respondent lives">Capetown</td>
+<td class="gt_row gt_right" headers="Frequency">22</td>
+<td class="gt_row gt_right" headers="Percent">7%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Ehlanzeni District</td>
-<td class="gt_row gt_right" headers="Frequency">2</td>
-<td class="gt_row gt_right" headers="Percent">0.7%</td>
+<td class="gt_row gt_left" headers="Current location where respondent lives">Chris Hani District</td>
+<td class="gt_row gt_right" headers="Frequency">12</td>
+<td class="gt_row gt_right" headers="Percent">4%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Garden Route District</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
+<td class="gt_row gt_left" headers="Current location where respondent lives">City of Ekurhuleni Metropolitan Municipality</td>
+<td class="gt_row gt_right" headers="Frequency">8</td>
+<td class="gt_row gt_right" headers="Percent">3%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Gert Sibande District</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Lejweleputswa District</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Mopani District</td>
-<td class="gt_row gt_right" headers="Frequency">2</td>
-<td class="gt_row gt_right" headers="Percent">0.7%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">Nkangala District</td>
-<td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Current location where respondent lives">OR Tambo District</td>
-<td class="gt_row gt_right" headers="Frequency">2</td>
-<td class="gt_row gt_right" headers="Percent">0.7%</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="Current location where respondent lives">Sedibeng District</td>
 <td class="gt_row gt_right" headers="Frequency">4</td>
-<td class="gt_row gt_right" headers="Percent">1.3%</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">eThekwini Metropolitan Municipality</td>
+<td class="gt_row gt_right" headers="Frequency">4</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Current location where respondent lives">West Rand District</td>
@@ -679,19 +601,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="Percent">1%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">eThekwini Metropolitan Municipality</td>
-<td class="gt_row gt_right" headers="Frequency">4</td>
-<td class="gt_row gt_right" headers="Percent">1.3%</td>
+<td class="gt_row gt_left" headers="Current location where respondent lives">Central Karoo District</td>
+<td class="gt_row gt_right" headers="Frequency">2</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Current location where respondent lives">City of Cape Town Metropolitan Municipality</td>
+<td class="gt_row gt_right" headers="Frequency">2</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Ehlanzeni District</td>
+<td class="gt_row gt_right" headers="Frequency">2</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Mopani District</td>
+<td class="gt_row gt_right" headers="Frequency">2</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">OR Tambo District</td>
+<td class="gt_row gt_right" headers="Frequency">2</td>
+<td class="gt_row gt_right" headers="Percent">1%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Bojanala Platinum District</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Buffalo City Metropolitan Municipality</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Garden Route District</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Gert Sibande District</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Lejweleputswa District</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Current location where respondent lives">Nkangala District</td>
+<td class="gt_row gt_right" headers="Frequency">1</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="Current location where respondent lives">uMzinyathi District</td>
 <td class="gt_row gt_right" headers="Frequency">1</td>
-<td class="gt_row gt_right" headers="Percent">0.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Current location where respondent lives">NA</td>
-<td class="gt_row gt_right" headers="Frequency">4</td>
-<td class="gt_row gt_right" headers="Percent">1.3%</td>
+<td class="gt_row gt_right" headers="Percent">0%</td>
 </tr>
 </tbody>
 </table>
@@ -702,23 +669,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Fifty percent of the non-South African nationalities respondents have been in South Africa for over five years while the second largest proportion of 37.5% have been in lived in South Africa for 1 - 5 yrs followed by those who have lived for 6 months - 12 months at 9.1% and then those that have been in South Africa for less than six months making up the remaining 3.4%. When the length of stay in South Africa was disaggregated by gender there did not seem to be a significant difference in the proportions by length of stay. However, disaggregating the length of stay by nationality, more Zimbabweans and Basotho tended to have been in South Africa for over 5 years (61.2% and 50% respectively) while a larger percentage of Malawians and Mozambicans indicated having lived in South Africa for 1 - 5 years.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bxgpbcdppx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bxgpbcdppx table {
+<div id="kmnejabdrm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kmnejabdrm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bxgpbcdppx thead, #bxgpbcdppx tbody, #bxgpbcdppx tfoot, #bxgpbcdppx tr, #bxgpbcdppx td, #bxgpbcdppx th {
+#kmnejabdrm thead, #kmnejabdrm tbody, #kmnejabdrm tfoot, #kmnejabdrm tr, #kmnejabdrm td, #kmnejabdrm th {
   border-style: none;
 }
 
-#bxgpbcdppx p {
+#kmnejabdrm p {
   margin: 0;
   padding: 0;
 }
 
-#bxgpbcdppx .gt_table {
+#kmnejabdrm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -744,12 +711,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_caption {
+#kmnejabdrm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bxgpbcdppx .gt_title {
+#kmnejabdrm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -761,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bxgpbcdppx .gt_subtitle {
+#kmnejabdrm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -773,7 +740,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bxgpbcdppx .gt_heading {
+#kmnejabdrm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -785,13 +752,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_bottom_border {
+#kmnejabdrm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_col_headings {
+#kmnejabdrm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -806,7 +773,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_col_heading {
+#kmnejabdrm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -826,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bxgpbcdppx .gt_column_spanner_outer {
+#kmnejabdrm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -838,15 +805,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bxgpbcdppx .gt_column_spanner_outer:first-child {
+#kmnejabdrm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bxgpbcdppx .gt_column_spanner_outer:last-child {
+#kmnejabdrm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bxgpbcdppx .gt_column_spanner {
+#kmnejabdrm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -858,11 +825,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bxgpbcdppx .gt_spanner_row {
+#kmnejabdrm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bxgpbcdppx .gt_group_heading {
+#kmnejabdrm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -888,7 +855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bxgpbcdppx .gt_empty_group_heading {
+#kmnejabdrm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -903,15 +870,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bxgpbcdppx .gt_from_md > :first-child {
+#kmnejabdrm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bxgpbcdppx .gt_from_md > :last-child {
+#kmnejabdrm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bxgpbcdppx .gt_row {
+#kmnejabdrm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -930,7 +897,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bxgpbcdppx .gt_stub {
+#kmnejabdrm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -943,7 +910,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bxgpbcdppx .gt_stub_row_group {
+#kmnejabdrm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -957,15 +924,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bxgpbcdppx .gt_row_group_first td {
+#kmnejabdrm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bxgpbcdppx .gt_row_group_first th {
+#kmnejabdrm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bxgpbcdppx .gt_summary_row {
+#kmnejabdrm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -975,16 +942,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bxgpbcdppx .gt_first_summary_row {
+#kmnejabdrm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_first_summary_row.thick {
+#kmnejabdrm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bxgpbcdppx .gt_last_summary_row {
+#kmnejabdrm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -994,7 +961,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_grand_summary_row {
+#kmnejabdrm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1004,7 +971,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bxgpbcdppx .gt_first_grand_summary_row {
+#kmnejabdrm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1014,7 +981,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_last_grand_summary_row_top {
+#kmnejabdrm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1024,11 +991,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_striped {
+#kmnejabdrm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bxgpbcdppx .gt_table_body {
+#kmnejabdrm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1037,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_footnotes {
+#kmnejabdrm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1051,7 +1018,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_footnote {
+#kmnejabdrm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1060,7 +1027,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bxgpbcdppx .gt_sourcenotes {
+#kmnejabdrm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1074,7 +1041,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bxgpbcdppx .gt_sourcenote {
+#kmnejabdrm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1082,119 +1049,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bxgpbcdppx .gt_left {
+#kmnejabdrm .gt_left {
   text-align: left;
 }
 
-#bxgpbcdppx .gt_center {
+#kmnejabdrm .gt_center {
   text-align: center;
 }
 
-#bxgpbcdppx .gt_right {
+#kmnejabdrm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bxgpbcdppx .gt_font_normal {
+#kmnejabdrm .gt_font_normal {
   font-weight: normal;
 }
 
-#bxgpbcdppx .gt_font_bold {
+#kmnejabdrm .gt_font_bold {
   font-weight: bold;
 }
 
-#bxgpbcdppx .gt_font_italic {
+#kmnejabdrm .gt_font_italic {
   font-style: italic;
 }
 
-#bxgpbcdppx .gt_super {
+#kmnejabdrm .gt_super {
   font-size: 65%;
 }
 
-#bxgpbcdppx .gt_footnote_marks {
+#kmnejabdrm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bxgpbcdppx .gt_asterisk {
+#kmnejabdrm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bxgpbcdppx .gt_indent_1 {
+#kmnejabdrm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bxgpbcdppx .gt_indent_2 {
+#kmnejabdrm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bxgpbcdppx .gt_indent_3 {
+#kmnejabdrm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bxgpbcdppx .gt_indent_4 {
+#kmnejabdrm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bxgpbcdppx .gt_indent_5 {
+#kmnejabdrm .gt_indent_5 {
   text-indent: 25px;
+}
+
+#kmnejabdrm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kmnejabdrm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="education_level" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">education_level</th>
-<th id="formal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">formal</th>
-<th id="informal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">informal</th>
-<th id="ownbusiness" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ownbusiness</th>
-<th id="unemployed" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">unemployed</th>
+<th id="Education" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Education</th>
+<th id="Formal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Formal</th>
+<th id="Informal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Informal</th>
+<th id="Ownbusiness" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Ownbusiness</th>
+<th id="Unemployed" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Unemployed</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="education_level">none</td>
-<td class="gt_row gt_right" headers="formal">9.7%</td>
-<td class="gt_row gt_right" headers="informal">51.6%</td>
-<td class="gt_row gt_right" headers="ownbusiness">22.6%</td>
-<td class="gt_row gt_right" headers="unemployed">16.1%</td>
+<td class="gt_row gt_left" headers="Education">None</td>
+<td class="gt_row gt_right" headers="Formal">10%</td>
+<td class="gt_row gt_right" headers="Informal">52%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">23%</td>
+<td class="gt_row gt_right" headers="Unemployed">16%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="education_level">primary</td>
-<td class="gt_row gt_right" headers="formal">15.8%</td>
-<td class="gt_row gt_right" headers="informal">47.4%</td>
-<td class="gt_row gt_right" headers="ownbusiness">19.7%</td>
-<td class="gt_row gt_right" headers="unemployed">17.1%</td>
+<td class="gt_row gt_left" headers="Education">Primary</td>
+<td class="gt_row gt_right" headers="Formal">16%</td>
+<td class="gt_row gt_right" headers="Informal">47%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">20%</td>
+<td class="gt_row gt_right" headers="Unemployed">17%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="education_level">secondary</td>
-<td class="gt_row gt_right" headers="formal">8.8%</td>
-<td class="gt_row gt_right" headers="informal">54.4%</td>
-<td class="gt_row gt_right" headers="ownbusiness">14.4%</td>
-<td class="gt_row gt_right" headers="unemployed">22.4%</td>
+<td class="gt_row gt_left" headers="Education">Secondary</td>
+<td class="gt_row gt_right" headers="Formal">9%</td>
+<td class="gt_row gt_right" headers="Informal">54%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">14%</td>
+<td class="gt_row gt_right" headers="Unemployed">22%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="education_level">tertiary</td>
-<td class="gt_row gt_right" headers="formal">66.1%</td>
-<td class="gt_row gt_right" headers="informal">0.0%</td>
-<td class="gt_row gt_right" headers="ownbusiness">17.3%</td>
-<td class="gt_row gt_right" headers="unemployed">16.5%</td>
+<td class="gt_row gt_left" headers="Education">Tertiary</td>
+<td class="gt_row gt_right" headers="Formal">66%</td>
+<td class="gt_row gt_right" headers="Informal">0%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">17%</td>
+<td class="gt_row gt_right" headers="Unemployed">17%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="education_level">vocational</td>
-<td class="gt_row gt_right" headers="formal">6.2%</td>
-<td class="gt_row gt_right" headers="informal">62.5%</td>
-<td class="gt_row gt_right" headers="ownbusiness">12.5%</td>
-<td class="gt_row gt_right" headers="unemployed">18.8%</td>
+<td class="gt_row gt_left" headers="Education">Vocational</td>
+<td class="gt_row gt_right" headers="Formal">6%</td>
+<td class="gt_row gt_right" headers="Informal">62%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">12%</td>
+<td class="gt_row gt_right" headers="Unemployed">19%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="education_level">Total</td>
-<td class="gt_row gt_right" headers="formal">29.6%</td>
-<td class="gt_row gt_right" headers="informal">34.7%</td>
-<td class="gt_row gt_right" headers="ownbusiness">17.1%</td>
-<td class="gt_row gt_right" headers="unemployed">18.7%</td>
+<td class="gt_row gt_left" headers="Education">Total</td>
+<td class="gt_row gt_right" headers="Formal">30%</td>
+<td class="gt_row gt_right" headers="Informal">35%</td>
+<td class="gt_row gt_right" headers="Ownbusiness">17%</td>
+<td class="gt_row gt_right" headers="Unemployed">19%</td>
 </tr>
 </tbody>
 </table>
@@ -1202,81 +1178,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Overall, the majority of respondents have attained either tertiary (33.9%) or secondary (33.2%) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—8.2%—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table @@@, 29.6% respondents reported being formally employed, while 17.1% indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, 34.7% were employed in the informal sector, and 18.7% of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (36.2%). On the other hand, the highest proportions of Malawian (76.0%), Mozambican (36.9%), and Zimbabwean (38.7%) respondents were engaged in informal employment. For respondents classified under ‘Other’ nationalities, the largest share was found to be formally employed.</p>
+<p>Overall, the majority of respondents have attained either tertiary (33.9%) or secondary (33.2%) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—8.2%—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table @@@, respondents reported being formally employed, while indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, were employed in the informal sector, and of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (). On the other hand, the highest proportions of Malawian (), Mozambican (), and Zimbabwean () respondents were engaged in informal employment. For respondents classified under ‘Other’ nationalities, the largest share was found to be formally employed.</p>
 </section>
 <section id="section-b-healthcare-needs-usage." class="level2">
 <h2 class="anchored" data-anchor-id="section-b-healthcare-needs-usage.">SECTION B: Healthcare Needs &amp; Usage.</h2>
-<p>Measuring healthcare importance and usage.</p>
-<p>To assess the importance placed on healthcare and its utilization, the target population was asked to respond to the following three statements:</p>
-<ul>
-<li>Access to quality healthcare is essential for me to live a productive and fulfilling life.</li>
-<li>I will do whatever it takes to ensure access to healthcare for myself and my family.</li>
-<li>I go for health check-ups even when I am not feeling unwell.</li>
-</ul>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Utano_report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The respondents’ overwhelming agreement with “access to quality health is essential” and “I will do anything to ensure access to healthcare” shows the high value on access to quality healthcare. Such strong sentiments suggest that the targetted population placess strong importance on healthcare that is of quality, and is also accessible and will be willing to engage with service that offers such qualities. “I go for health check-ups even when I am well”, which assesses health-seeking and preventative health behavior, received <code>r</code>% agreement, <code>r</code>% disagreement, and <code>r</code>% uncertainty, reflecting a more mixed view compared to the consistently high agreement observed in the other two statements. This disparity may point to limitations in preventative health practices, potentially driven by affordability or access barriers. It suggests that a significant portion of the population may only seek healthcare when they are already ill, rather than engaging in routine preventive care.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>qn_8_table_nat_gender <span class="ot">&lt;-</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  qn_8_statements <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Response)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nationality_recode,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    Statement,Response) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Proportion =</span> <span class="fu">round</span>(Count<span class="sc">/</span><span class="fu">sum</span>(Count) <span class="sc">*</span> <span class="dv">100</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'nationality_recode', 'Statement'. You can
-override using the `.groups` argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>qn_8_table_nat_gender <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Statement =</span> <span class="fu">case_when</span>(Statement  <span class="sc">==</span> <span class="st">"access_quality"</span> <span class="sc">~</span> <span class="st">"Access to quality healthcare is essential"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                               Statement  <span class="sc">==</span> <span class="st">"ensure_access"</span> <span class="sc">~</span> <span class="st">"I will do anything to ensure access to healthcare"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                               Statement <span class="sc">==</span> <span class="st">"routine_checkups"</span> <span class="sc">~</span> <span class="st">"I go for health check-ups even when I am well"</span> ), </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Response =</span> <span class="fu">case_when</span>(Response <span class="sc">==</span> <span class="st">"agree"</span> <span class="sc">~</span> <span class="st">"Agree"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                              Response <span class="sc">==</span> <span class="st">"disagree"</span> <span class="sc">~</span> <span class="st">"Disagree"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                              Response <span class="sc">==</span> <span class="st">"dontknow"</span> <span class="sc">~</span> <span class="st">"Don't Know"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span> (<span class="at">y =</span> Statement, <span class="at">x =</span> Proportion, <span class="at">fill =</span> Response)  <span class="sc">+</span> </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">ifelse</span>(Proportion <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="fu">paste0</span>(<span class="fu">round</span>(Proportion), <span class="st">"%"</span>),<span class="st">""</span>)),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_paletteer_d</span>(<span class="st">"fishualize::Acanthisthius_brasilianus"</span>) <span class="sc">+</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Percent Distribution of Responses by Statements"</span>,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Statement"</span>,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Percentage"</span>,</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Response"</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">"nationality_recode"</span>, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Utano_report_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Statement        distinct_levels
+  &lt;chr&gt;                      &lt;int&gt;
+1 access_quality                 4
+2 education_level                6
+3 routine_checkups               4</code></pre>
 </div>
 </div>
 </section>
 <section id="section-c-willingness-to-sign-up-for-the-product." class="level2">
 <h2 class="anchored" data-anchor-id="section-c-willingness-to-sign-up-for-the-product.">SECTION C: Willingness to sign up for the product.</h2>
+<section id="language-preference-and-choice-of-healthcare-provider" class="level3">
+<h3 class="anchored" data-anchor-id="language-preference-and-choice-of-healthcare-provider">Language Preference and Choice of Healthcare Provider</h3>
+<p>When asked whether language influences their decision when choosing a healthcare provider, the majority of respondents affirmed its importance. Specifically, 88% of females and 89% of males agreed that language plays a role in their decision-making, resulting in an overall agreement of 88%. This suggests that language is a key consideration for both females and males when selecting a healthcare provider, emphasizing the critical importance of language-concordant care in health service delivery (Table below)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-8dbafa5e{}.cl-8db5e730{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8db84746{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8db85a06{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8db85a07{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8db85a08{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8db85a10{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8db85a11{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8db85a12{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8dbafa5e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8db85a06"><p class="cl-8db84746"><span class="cl-8db5e730">Language</span></p></th><th class="cl-8db85a07"><p class="cl-8db84746"><span class="cl-8db5e730">Female</span></p></th><th class="cl-8db85a07"><p class="cl-8db84746"><span class="cl-8db5e730">Male</span></p></th><th class="cl-8db85a07"><p class="cl-8db84746"><span class="cl-8db5e730">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8db85a08"><p class="cl-8db84746"><span class="cl-8db5e730">Agree</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">163  (88%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">160  (89%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">323  (88%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8db85a08"><p class="cl-8db84746"><span class="cl-8db5e730">Disagree</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">17   (9%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">13   (7%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">30   (8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8db85a08"><p class="cl-8db84746"><span class="cl-8db5e730">Dont know</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">6   (3%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">7   (4%)</span></p></td><td class="cl-8db85a10"><p class="cl-8db84746"><span class="cl-8db5e730">13   (4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8db85a11"><p class="cl-8db84746"><span class="cl-8db5e730">Total</span></p></td><td class="cl-8db85a12"><p class="cl-8db84746"><span class="cl-8db5e730">186 (100%)</span></p></td><td class="cl-8db85a12"><p class="cl-8db84746"><span class="cl-8db5e730">180 (100%)</span></p></td><td class="cl-8db85a12"><p class="cl-8db84746"><span class="cl-8db5e730">366 (100%)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="gender-preference-and-choice-of-healthcare-provider" class="level3">
+<h3 class="anchored" data-anchor-id="gender-preference-and-choice-of-healthcare-provider">Gender Preference and Choice of Healthcare Provider</h3>
+<p>When asked whether they choose a healthcare provider based on gender, 61% of females and 64% of males agreed with the statement, suggesting that gender plays a role in provider selection for a significant portion of both groups. Overall, 62% of respondents agreed.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-8decef64{}.cl-8de88352{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8dea4cf0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8dea6988{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8dea6992{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8dea6993{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8dea699c{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8dea699d{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8dea699e{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8decef64"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8dea6988"><p class="cl-8dea4cf0"><span class="cl-8de88352">Gender</span></p></th><th class="cl-8dea6992"><p class="cl-8dea4cf0"><span class="cl-8de88352">Female</span></p></th><th class="cl-8dea6992"><p class="cl-8dea4cf0"><span class="cl-8de88352">Male</span></p></th><th class="cl-8dea6992"><p class="cl-8dea4cf0"><span class="cl-8de88352">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8dea6993"><p class="cl-8dea4cf0"><span class="cl-8de88352">Agree</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">114  (61%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">114  (64%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">228  (62%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8dea6993"><p class="cl-8dea4cf0"><span class="cl-8de88352">Disagree</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">68  (36%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">58  (33%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">126  (35%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8dea6993"><p class="cl-8dea4cf0"><span class="cl-8de88352">Dont know</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">6   (3%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">5   (3%)</span></p></td><td class="cl-8dea699c"><p class="cl-8dea4cf0"><span class="cl-8de88352">11   (3%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8dea699d"><p class="cl-8dea4cf0"><span class="cl-8de88352">Total</span></p></td><td class="cl-8dea699e"><p class="cl-8dea4cf0"><span class="cl-8de88352">188 (100%)</span></p></td><td class="cl-8dea699e"><p class="cl-8dea4cf0"><span class="cl-8de88352">177 (100%)</span></p></td><td class="cl-8dea699e"><p class="cl-8dea4cf0"><span class="cl-8de88352">365 (100%)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="choosing-a-healthcare-provider-based-on-availablity-of-key-population-services" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-a-healthcare-provider-based-on-availablity-of-key-population-services">Choosing a healthcare provider based on Availablity of Key population Services</h3>
+<p>When considering the availability of key population services as a factor in choosing a healthcare provider, a majority of respondents across both genders agreed that it influences their choice. Specifically, 67% of females and 78% of males agreed, resulting in an overall agreement of 73%. This indicates a strong preference for providers that offer services tailored to key populations.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-8e1e8330{}.cl-8e1a1926{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8e1be7e2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8e1bf714{width:1.296in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e1bf715{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e1bf71e{width:1.296in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e1bf71f{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e1bf720{width:1.296in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e1bf728{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8e1e8330"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8e1bf714"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Key population</span></p></th><th class="cl-8e1bf715"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Female</span></p></th><th class="cl-8e1bf715"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Male</span></p></th><th class="cl-8e1bf715"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8e1bf71e"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Agree</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">125  (67%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">140  (78%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">265  (73%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e1bf71e"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Disagree</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">32  (17%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">21  (12%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">53  (15%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e1bf71e"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Dont know</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">29  (16%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">18  (10%)</span></p></td><td class="cl-8e1bf71f"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">47  (13%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e1bf720"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">Total</span></p></td><td class="cl-8e1bf728"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">186 (100%)</span></p></td><td class="cl-8e1bf728"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">179 (100%)</span></p></td><td class="cl-8e1bf728"><p class="cl-8e1be7e2"><span class="cl-8e1a1926">365 (100%)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="years-of-clinical-experience-and-choice-of-healthcare-provider" class="level3">
+<h3 class="anchored" data-anchor-id="years-of-clinical-experience-and-choice-of-healthcare-provider">Years of Clinical Experience and Choice of Healthcare Provider</h3>
+<p>The majority of respondents indicated that years of clinical experience play a significant role in their choice of healthcare provider. 79% of females and 85% of males agreed with this statement, contributing to an overall agreement rate of 82%. This reflects a strong and consistent preference across both genders for experienced healthcare professionals.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-8e4fa5a0{}.cl-8e4b61e8{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8e4d09c6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8e4d19c0{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e4d19c1{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e4d19c2{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e4d19ca{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e4d19cb{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8e4d19cc{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8e4fa5a0"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8e4d19c0"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Years of experience</span></p></th><th class="cl-8e4d19c1"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Female</span></p></th><th class="cl-8e4d19c1"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Male</span></p></th><th class="cl-8e4d19c1"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8e4d19c2"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Agree</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">146  (79%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">153  (85%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">299  (82%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e4d19c2"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Disagree</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">31  (17%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">20  (11%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">51  (14%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e4d19c2"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Dont know</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">7   (4%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">6   (3%)</span></p></td><td class="cl-8e4d19ca"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">13   (4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8e4d19cb"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">Total</span></p></td><td class="cl-8e4d19cc"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">184 (100%)</span></p></td><td class="cl-8e4d19cc"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">179 (100%)</span></p></td><td class="cl-8e4d19cc"><p class="cl-8e4d09c6"><span class="cl-8e4b61e8">363 (100%)</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+</section>
+<section id="selecting-health-services-products" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-health-services-products">Selecting health services products</h2>
 <p>Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Utano_report_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Utano_report_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1286,27 +1249,1491 @@ override using the `.groups` argument.</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Utano_report_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Utano_report_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Language Preference and Choice of Healthcare Provider – Gender Disaggregation</p>
-<p>The majority of both female and male respondents indicated that language plays a significant role in their choice of healthcare provider, with 163 females (50%) and 160 males (50%) agreeing with this statement. A smaller proportion disagreed—17 females (57%) vs.&nbsp;13 males (43%)—suggesting that more females than males feel language is important, though the numbers remain relatively low. Among those who were uncertain, the response was balanced, with 6 females (46%) and 7 males (54%) indicating they didn’t know whether language influences their provider choice. Overall, 366 respondents participated in this assessment, with a slightly higher representation of females (51%) than males (49%).</p>
-<p>This suggests that language is a key consideration for both genders when selecting a healthcare provider, highlighting the importance of language-concordant care in health service delivery (Table below)</p>
+</section>
+<section id="preferred-payment-options" class="level2">
+<h2 class="anchored" data-anchor-id="preferred-payment-options">Preferred Payment Options</h2>
+<p>When asked about their preferred payment method for healthcare services, cash emerged as the most commonly selected option, with 40% of respondents indicating this preference. This was followed by card payments, selected by 26%, and insurance, chosen by 21% of respondents. Prepaid options were the least preferred, with only 12% of participants opting for this method.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f2e90994{}.cl-f2e2abe4{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f2e54192{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f2e55448{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e55452{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e55453{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e5545c{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e5545d{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e55466{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e55467{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2e55470{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f2e90994"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f2e55448"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Language</span></p></th><th class="cl-f2e55452"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Female</span></p></th><th class="cl-f2e55452"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Male</span></p></th><th class="cl-f2e55452"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f2e55453"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Agree</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">163  (88%)</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">160  (89%)</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">323  (88%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f2e55453"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Disagree</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">17   (9%)</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">13   (7%)</span></p></td><td class="cl-f2e5545c"><p class="cl-f2e54192"><span class="cl-f2e2abe4">30   (8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f2e5545d"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Dont know</span></p></td><td class="cl-f2e55466"><p class="cl-f2e54192"><span class="cl-f2e2abe4">6   (3%)</span></p></td><td class="cl-f2e55466"><p class="cl-f2e54192"><span class="cl-f2e2abe4">7   (4%)</span></p></td><td class="cl-f2e55466"><p class="cl-f2e54192"><span class="cl-f2e2abe4">13   (4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f2e55467"><p class="cl-f2e54192"><span class="cl-f2e2abe4">Total</span></p></td><td class="cl-f2e55470"><p class="cl-f2e54192"><span class="cl-f2e2abe4">186 (100%)</span></p></td><td class="cl-f2e55470"><p class="cl-f2e54192"><span class="cl-f2e2abe4">180 (100%)</span></p></td><td class="cl-f2e55470"><p class="cl-f2e54192"><span class="cl-f2e2abe4">366 (100%)</span></p></td></tr></tbody></table></div>
+<div id="ygucjnhvqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ygucjnhvqk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ygucjnhvqk thead, #ygucjnhvqk tbody, #ygucjnhvqk tfoot, #ygucjnhvqk tr, #ygucjnhvqk td, #ygucjnhvqk th {
+  border-style: none;
+}
+
+#ygucjnhvqk p {
+  margin: 0;
+  padding: 0;
+}
+
+#ygucjnhvqk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ygucjnhvqk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ygucjnhvqk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ygucjnhvqk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ygucjnhvqk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ygucjnhvqk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ygucjnhvqk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ygucjnhvqk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ygucjnhvqk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ygucjnhvqk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ygucjnhvqk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ygucjnhvqk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ygucjnhvqk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ygucjnhvqk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ygucjnhvqk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygucjnhvqk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ygucjnhvqk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ygucjnhvqk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ygucjnhvqk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygucjnhvqk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ygucjnhvqk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygucjnhvqk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ygucjnhvqk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygucjnhvqk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygucjnhvqk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygucjnhvqk .gt_left {
+  text-align: left;
+}
+
+#ygucjnhvqk .gt_center {
+  text-align: center;
+}
+
+#ygucjnhvqk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ygucjnhvqk .gt_font_normal {
+  font-weight: normal;
+}
+
+#ygucjnhvqk .gt_font_bold {
+  font-weight: bold;
+}
+
+#ygucjnhvqk .gt_font_italic {
+  font-style: italic;
+}
+
+#ygucjnhvqk .gt_super {
+  font-size: 65%;
+}
+
+#ygucjnhvqk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ygucjnhvqk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ygucjnhvqk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ygucjnhvqk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ygucjnhvqk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ygucjnhvqk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ygucjnhvqk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ygucjnhvqk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ygucjnhvqk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Payment-Option" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Payment Option</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frequency</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Payment Option">Card</td>
+<td class="gt_row gt_right" headers="n">99</td>
+<td class="gt_row gt_right" headers="percent">26%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Payment Option">Cash</td>
+<td class="gt_row gt_right" headers="n">152</td>
+<td class="gt_row gt_right" headers="percent">40%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Payment Option">Insurance</td>
+<td class="gt_row gt_right" headers="n">81</td>
+<td class="gt_row gt_right" headers="percent">21%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Payment Option">Prepaid</td>
+<td class="gt_row gt_right" headers="n">46</td>
+<td class="gt_row gt_right" headers="percent">12%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Payment Option">Total</td>
+<td class="gt_row gt_right" headers="n">378</td>
+<td class="gt_row gt_right" headers="percent">100%</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<p>When asked about their preferred subscription method for healthcare services, the majority of respondents (46%) indicated a preference for monthly subscriptions, suggesting a favorability toward shorter, more flexible payment cycles. This was followed by one-time subscriptions at 20%, and annual subscriptions at 16%.Less commonly selected were quarterly and biannual subscriptions, accounting for 12% and 6% of responses, respectively.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f314cb10{}.cl-f30ca674{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f310883e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f3109ce8{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109cf2{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109cf3{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109cfc{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109cfd{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109d06{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109d07{width:1.007in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3109d08{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f314cb10"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f3109ce8"><p class="cl-f310883e"><span class="cl-f30ca674">Gender</span></p></th><th class="cl-f3109cf2"><p class="cl-f310883e"><span class="cl-f30ca674">Female</span></p></th><th class="cl-f3109cf2"><p class="cl-f310883e"><span class="cl-f30ca674">Male</span></p></th><th class="cl-f3109cf2"><p class="cl-f310883e"><span class="cl-f30ca674">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f3109cf3"><p class="cl-f310883e"><span class="cl-f30ca674">Agree</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">114  (61%)</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">114  (64%)</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">228  (62%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f3109cf3"><p class="cl-f310883e"><span class="cl-f30ca674">Disagree</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">68  (36%)</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">58  (33%)</span></p></td><td class="cl-f3109cfc"><p class="cl-f310883e"><span class="cl-f30ca674">126  (35%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f3109cfd"><p class="cl-f310883e"><span class="cl-f30ca674">Dont know</span></p></td><td class="cl-f3109d06"><p class="cl-f310883e"><span class="cl-f30ca674">6   (3%)</span></p></td><td class="cl-f3109d06"><p class="cl-f310883e"><span class="cl-f30ca674">5   (3%)</span></p></td><td class="cl-f3109d06"><p class="cl-f310883e"><span class="cl-f30ca674">11   (3%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f3109d07"><p class="cl-f310883e"><span class="cl-f30ca674">Total</span></p></td><td class="cl-f3109d08"><p class="cl-f310883e"><span class="cl-f30ca674">188 (100%)</span></p></td><td class="cl-f3109d08"><p class="cl-f310883e"><span class="cl-f30ca674">177 (100%)</span></p></td><td class="cl-f3109d08"><p class="cl-f310883e"><span class="cl-f30ca674">365 (100%)</span></p></td></tr></tbody></table></div>
+<div id="epbdlfnffo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#epbdlfnffo table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#epbdlfnffo thead, #epbdlfnffo tbody, #epbdlfnffo tfoot, #epbdlfnffo tr, #epbdlfnffo td, #epbdlfnffo th {
+  border-style: none;
+}
+
+#epbdlfnffo p {
+  margin: 0;
+  padding: 0;
+}
+
+#epbdlfnffo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#epbdlfnffo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#epbdlfnffo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#epbdlfnffo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#epbdlfnffo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#epbdlfnffo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#epbdlfnffo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#epbdlfnffo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#epbdlfnffo .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#epbdlfnffo .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#epbdlfnffo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#epbdlfnffo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#epbdlfnffo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#epbdlfnffo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#epbdlfnffo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#epbdlfnffo .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#epbdlfnffo .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#epbdlfnffo .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#epbdlfnffo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#epbdlfnffo .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#epbdlfnffo .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#epbdlfnffo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#epbdlfnffo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#epbdlfnffo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#epbdlfnffo .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#epbdlfnffo .gt_left {
+  text-align: left;
+}
+
+#epbdlfnffo .gt_center {
+  text-align: center;
+}
+
+#epbdlfnffo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#epbdlfnffo .gt_font_normal {
+  font-weight: normal;
+}
+
+#epbdlfnffo .gt_font_bold {
+  font-weight: bold;
+}
+
+#epbdlfnffo .gt_font_italic {
+  font-style: italic;
+}
+
+#epbdlfnffo .gt_super {
+  font-size: 65%;
+}
+
+#epbdlfnffo .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#epbdlfnffo .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#epbdlfnffo .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#epbdlfnffo .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#epbdlfnffo .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#epbdlfnffo .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#epbdlfnffo .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#epbdlfnffo .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#epbdlfnffo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Subscription-Option" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Subscription Option</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frequency</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Subscription Option">Annual</td>
+<td class="gt_row gt_right" headers="n">60</td>
+<td class="gt_row gt_right" headers="percent">16%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Subscription Option">Biannual</td>
+<td class="gt_row gt_right" headers="n">22</td>
+<td class="gt_row gt_right" headers="percent">6%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Subscription Option">Monthly</td>
+<td class="gt_row gt_right" headers="n">172</td>
+<td class="gt_row gt_right" headers="percent">46%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Subscription Option">Once</td>
+<td class="gt_row gt_right" headers="n">76</td>
+<td class="gt_row gt_right" headers="percent">20%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Subscription Option">Quarterly</td>
+<td class="gt_row gt_right" headers="n">46</td>
+<td class="gt_row gt_right" headers="percent">12%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Subscription Option">Total</td>
+<td class="gt_row gt_right" headers="n">376</td>
+<td class="gt_row gt_right" headers="percent">100%</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<p>When asked about their preferred method of subscribing to a healthcare service, 44% of respondents favored an assisted subscription, indicating a preference for guided or in-person support. Online subscriptions were selected by 35%, demonstrating a growing acceptance of digital platforms for managing healthcare enrollment. Meanwhile, 21% preferred to subscribe through their employer.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-f33ff61e{}.cl-f3398270{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f33c26e2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f33c39b6{width:1.228in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39c0{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39c1{width:1.228in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39ca{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39cb{width:1.228in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39d4{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39d5{width:1.228in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f33c39de{width:1.075in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f33ff61e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f33c39b6"><p class="cl-f33c26e2"><span class="cl-f3398270">keypopulation</span></p></th><th class="cl-f33c39c0"><p class="cl-f33c26e2"><span class="cl-f3398270">Female</span></p></th><th class="cl-f33c39c0"><p class="cl-f33c26e2"><span class="cl-f3398270">Male</span></p></th><th class="cl-f33c39c0"><p class="cl-f33c26e2"><span class="cl-f3398270">Total</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f33c39c1"><p class="cl-f33c26e2"><span class="cl-f3398270">Agree</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">125  (67%)</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">140  (78%)</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">265  (73%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f33c39c1"><p class="cl-f33c26e2"><span class="cl-f3398270">Disagree</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">32  (17%)</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">21  (12%)</span></p></td><td class="cl-f33c39ca"><p class="cl-f33c26e2"><span class="cl-f3398270">53  (15%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f33c39cb"><p class="cl-f33c26e2"><span class="cl-f3398270">Dont know</span></p></td><td class="cl-f33c39d4"><p class="cl-f33c26e2"><span class="cl-f3398270">29  (16%)</span></p></td><td class="cl-f33c39d4"><p class="cl-f33c26e2"><span class="cl-f3398270">18  (10%)</span></p></td><td class="cl-f33c39d4"><p class="cl-f33c26e2"><span class="cl-f3398270">47  (13%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f33c39d5"><p class="cl-f33c26e2"><span class="cl-f3398270">Total</span></p></td><td class="cl-f33c39de"><p class="cl-f33c26e2"><span class="cl-f3398270">186 (100%)</span></p></td><td class="cl-f33c39de"><p class="cl-f33c26e2"><span class="cl-f3398270">179 (100%)</span></p></td><td class="cl-f33c39de"><p class="cl-f33c26e2"><span class="cl-f3398270">365 (100%)</span></p></td></tr></tbody></table></div>
+<div id="gwswwxmtzq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gwswwxmtzq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gwswwxmtzq thead, #gwswwxmtzq tbody, #gwswwxmtzq tfoot, #gwswwxmtzq tr, #gwswwxmtzq td, #gwswwxmtzq th {
+  border-style: none;
+}
+
+#gwswwxmtzq p {
+  margin: 0;
+  padding: 0;
+}
+
+#gwswwxmtzq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gwswwxmtzq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gwswwxmtzq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gwswwxmtzq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gwswwxmtzq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gwswwxmtzq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gwswwxmtzq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gwswwxmtzq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gwswwxmtzq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gwswwxmtzq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gwswwxmtzq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gwswwxmtzq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gwswwxmtzq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gwswwxmtzq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gwswwxmtzq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwswwxmtzq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gwswwxmtzq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gwswwxmtzq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gwswwxmtzq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwswwxmtzq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gwswwxmtzq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwswwxmtzq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gwswwxmtzq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwswwxmtzq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gwswwxmtzq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwswwxmtzq .gt_left {
+  text-align: left;
+}
+
+#gwswwxmtzq .gt_center {
+  text-align: center;
+}
+
+#gwswwxmtzq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gwswwxmtzq .gt_font_normal {
+  font-weight: normal;
+}
+
+#gwswwxmtzq .gt_font_bold {
+  font-weight: bold;
+}
+
+#gwswwxmtzq .gt_font_italic {
+  font-style: italic;
+}
+
+#gwswwxmtzq .gt_super {
+  font-size: 65%;
+}
+
+#gwswwxmtzq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gwswwxmtzq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gwswwxmtzq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gwswwxmtzq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gwswwxmtzq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gwswwxmtzq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gwswwxmtzq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#gwswwxmtzq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gwswwxmtzq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Subscription-Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Subscription Method</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Frequency</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percentage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Subscription Method">Assisted</td>
+<td class="gt_row gt_right" headers="n">167</td>
+<td class="gt_row gt_right" headers="percent">44%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Subscription Method">Employer</td>
+<td class="gt_row gt_right" headers="n">80</td>
+<td class="gt_row gt_right" headers="percent">21%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Subscription Method">Online</td>
+<td class="gt_row gt_right" headers="n">132</td>
+<td class="gt_row gt_right" headers="percent">35%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Subscription Method">Total</td>
+<td class="gt_row gt_right" headers="n">379</td>
+<td class="gt_row gt_right" headers="percent">100%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 </section>
