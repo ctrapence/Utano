@@ -447,43 +447,10 @@ qn_8_statements %>%
   summarise(distinct_levels = n_distinct(Level)) 
 
 ```
-
-
-Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
-
-```{r echo=FALSE,warning=FALSE,message=FALSE}
-raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
-  mutate(gender=str_to_sentence(gender))%>% 
-                      ggplot() +
-  aes(x = service_type, fill = gender) +
-  geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
-  theme_linedraw() +
-  theme(legend.justification = "right")+
-   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
-  
-
-```
-
-Understanding how different Nationality engage with various service types can provide valuable insights into consumer preferences and accessibility.The chart below highlights how employment status influence service preferences. Those in the informal sector predominantly chose Gold while those in the formal sector,show stronger preference in Lithium, Platinum and Silver services.
-
-```{r echo=FALSE,warning=FALSE,message=FALSE}
-raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA") %>% 
-  mutate(occupation=as.factor(str_to_sentence(occupation))) %>% 
-  mutate(occupation=fct_relevel(occupation, "informal","formal","ownbusiness","unemployed"))%>% 
-                      ggplot() +
-  aes(x = service_type, fill = occupation) +
-  geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
-  theme_linedraw() +
-  theme(legend.justification = "right")+
-   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
-```
-
-
 ## SECTION C: Willingness to sign up for the product.
 
-### Language Preference and Choice of Healthcare Provider – Gender Disaggregation
+
+### Language Preference and Choice of Healthcare Provider
 
 When asked whether language influences their decision when choosing a healthcare provider, the majority of respondents affirmed its importance. Specifically, 88% of females and 89% of males agreed that language plays a role in their decision-making, resulting in an overall agreement of 88%. This suggests that language is a key consideration for both females and males when selecting a healthcare provider, emphasizing the critical importance of language-concordant care in health service delivery (Table below)
 
@@ -501,7 +468,7 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-###   Choosing a healthcare provider based on Gender
+###   Gender Preference and Choice of Healthcare Provider
 
 When asked whether they choose a healthcare provider based on gender, 61% of females and 64% of males agreed with the statement, suggesting that gender plays a role in provider selection for a significant portion of both groups. Overall, 62% of respondents agreed.
   
@@ -537,7 +504,7 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
 
 ```
 
-### Years of Clinical Experience
+### Years of Clinical Experience and Choice of Healthcare Provider 
 The majority of respondents indicated that years of clinical experience play a significant role in their choice of healthcare provider. 79% of females and 85% of males agreed with this statement, contributing to an overall agreement rate of 82%. This reflects a strong and consistent preference across both genders for experienced healthcare professionals.
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 
@@ -553,5 +520,38 @@ raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_ty
   adorn_ns(position = "front") %>% 
   flextable() %>% 
   autofit()
+```
+
+## Selecting  health services products 
+
+Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>% 
+  mutate(gender=str_to_sentence(gender))%>% 
+                      ggplot() +
+  aes(x = service_type, fill = gender) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
+  
+
+```
+
+Understanding how different Nationality engage with various service types can provide valuable insights into consumer preferences and accessibility.The chart below highlights how employment status influence service preferences. Those in the informal sector predominantly chose Gold while those in the formal sector,show stronger preference in Lithium, Platinum and Silver services.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA") %>% 
+  mutate(occupation=as.factor(str_to_sentence(occupation))) %>% 
+  mutate(occupation=fct_relevel(occupation, "informal","formal","ownbusiness","unemployed"))%>% 
+                      ggplot() +
+  aes(x = service_type, fill = occupation) +
+  geom_bar(position = "dodge") +
+  scale_fill_hue(direction = 1) +
+  theme_linedraw() +
+  theme(legend.justification = "right")+
+   labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
 ```
 
