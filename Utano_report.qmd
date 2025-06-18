@@ -16,6 +16,11 @@ editor: visual
   library(officer)
   library(flextable)
   library(gt)
+  library(paletteer)
+  library(waffle)
+  library(grid)
+  library(psych)
+
 
 ```
 
@@ -344,8 +349,6 @@ edu_none <-
   pull(Percent)
 ```
 
-
-
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 #Occupation and Education level by Nationality and Gender 
 
@@ -390,12 +393,12 @@ edu_occ_gender <-
   adorn_pct_formatting(digits = 0)  %>% 
   adorn_ns("rear")
 
-  
+  edu_occ_nat$Lesotho$Unemployed[edu_occ_nat$Lesotho$Education == "Total"]
 
 
 ```
 
-Overall, the majority of respondents have attained either tertiary (`r tertiary_per`) or secondary (`r secondary_per`) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—`r edu_none`—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table @@@, `r edu_occ$formal[edu_occ$education_level == "Total"]` respondents reported being formally employed, while `r edu_occ$ownbusiness[edu_occ$education_level == "Total"]` indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, `r edu_occ$informal[edu_occ$education_level == "Total"]` were employed in the informal sector, and `r edu_occ$unemployed[edu_occ$education_level == "Total"]` of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (`r  edu_occ_nat$Lesotho$unemployed[edu_occ_nat$Lesotho$education_level == "Total"]`). On the other hand, the highest proportions of Malawian (`r edu_occ_nat$Malawi$informal[edu_occ_nat$Malawi$education_level == "Total"]`), Mozambican (`r edu_occ_nat$Mozambique$informal[edu_occ_nat$Mozambique$education_level == "Total"]`), and Zimbabwean (`r edu_occ_nat$Zimbabwe$informal[edu_occ_nat$Zimbabwe$education_level == "Total"]`) respondents were engaged in informal employment. For respondents classified under 'Other' nationalities, the largest share was found to be formally employed. 
+Overall, the majority of respondents have attained either tertiary (`r tertiary_per`) or secondary (`r secondary_per`) education, reflecting a generally high level of educational attainment within the target population. However, a notable proportion—`r edu_none`—reported having no formal education, highlighting the need for tailored communication strategies that accommodate varying literacy and comprehension levels within the market. As presented in Table \@\@\@, `r edu_occ$Formal[edu_occ$Education == "Total"]` respondents reported being formally employed, while `r edu_occ$Ownbusiness[edu_occ$Education == "Total"]` indicated they operated their own business—together reflecting substantial engagement in formal income-generating activities. In contrast, `r edu_occ$Informal[edu_occ$Education == "Total"]` were employed in the informal sector, and `r edu_occ$Unemployed[edu_occ$Education == "Total"]` of the sampled population were recorded as unemployed. These findings suggest that market segmentation strategies should consider the varying levels of financial stability and purchasing power across these groups, with tailored approaches for formally employed and business-owning segments, while accounting for the unique needs and constraints of the informally employed and unemployed populations. An analysis of occupational status by nationality reveals that the majority of Basotho respondents were unemployed (`r  edu_occ_nat$Lesotho$Unemployed[edu_occ_nat$Lesotho$Education == "Total"]`). On the other hand, the highest proportions of Malawian (`r edu_occ_nat$Malawi$Informal[edu_occ_nat$Malawi$Education== "Total"]`), Mozambican (`r edu_occ_nat$Mozambique$Informal[edu_occ_nat$Mozambique$Education == "Total"]`), and Zimbabwean (`r edu_occ_nat$Zimbabwe$Informal[edu_occ_nat$Zimbabwe$Education == "Total"]`) respondents were engaged in informal employment. For respondents classified under 'Other' nationalities, the largest share was found to be formally employed.
 
 ```{r echo = FALSE, warning = FALSE, message = FALSE, eval=FALSE}
  raw_data_c %>%
@@ -412,8 +415,16 @@ Overall, the majority of respondents have attained either tertiary (`r tertiary_
   adorn_pct_formatting(digits = 0) %>% 
   adorn_ns("rear")
 ```
+
 ## SECTION B: Healthcare Needs & Usage.
 
+Measuring healthcare importance and usage.
+
+To assess the importance placed on healthcare and its utilization, the target population was asked to respond to the following three statements:
+
+-   Access to quality healthcare is essential for me to live a productive and fulfilling life.
+-   I will do whatever it takes to ensure access to healthcare for myself and my family.
+-   I go for health check-ups even when I am not feeling unwell.
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # splitting the dataset from qn1 - qn 8 
@@ -430,6 +441,7 @@ data_sectionb <-
     occupation,
     education_level,
     access_quality,
+    ensure_access,
     routine_checkups
   )
 
@@ -437,18 +449,116 @@ data_sectionb <-
 qn_8_statements <-
   data_sectionb %>% 
   pivot_longer(
-    cols = c(education_level,access_quality,routine_checkups),
+    cols = c(access_quality,ensure_access, routine_checkups),
     names_to = "Statement",
-    values_to = "Level"
+    values_to = "Response"
   )
 
-qn_8_statements %>% 
-  group_by(Statement) %>% 
-  summarise(distinct_levels = n_distinct(Level)) 
+qn_8_table <-
+  qn_8_statements %>% 
+  filter(!is.na(Response)) %>% 
+  group_by(#nationality_recode,gender,
+    Statement,Response) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Proportion = round(Count/sum(Count) * 100,0))
+
+
+
+qn_8_table %>% 
+  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to quality healthcare is essential",
+                               Statement  == "ensure_access" ~ "I will do anything to ensure access to healthcare",
+                               Statement == "routine_checkups" ~ "I go for health check-ups even when I am well" ), 
+         Response = case_when(Response == "agree" ~ "Agree",
+                              Response == "disagree" ~ "Disagree",
+                              Response == "dontknow" ~ "Don't Know")) %>% 
+  ggplot() + 
+  aes (y = Statement, x = Proportion, fill = Response)  + 
+  geom_col(position = "fill") +
+  geom_text(aes(label = ifelse(Proportion > 5, paste0(round(Proportion), "%"),"")),
+                position = position_fill(vjust = 0.5), 
+                color = "white",
+                size = 3,
+                fontface = "bold") +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    title = "Percent Distribution of Responses by Statements",face = "bold",
+    x = "Statement",
+    y = "Percentage",
+    fill = "Response"
+  ) +
+  theme_minimal()
+
+routine_checks_yes <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "agree") %>%
+  pull(Proportion)
+
+routine_checks_no <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "disagree") %>%
+  pull(Proportion)
+
+routine_checks_dn <- 
+  qn_8_table %>%
+  filter(Statement == "routine_checkups", Response == "dontknow") %>%
+  pull(Proportion)
 
 ```
-## SECTION C: Willingness to sign up for the product.
 
+The respondents' overwhelming agreement with "access to quality health is essential" and "I will do anything to ensure access to healthcare" shows the high value on access to quality healthcare. Such strong sentiments suggest that the targetted population placess strong importance on healthcare that is of quality, and is also accessible and will be willing to engage with service that offers such qualities. "I go for health check-ups even when I am well”, which assesses health-seeking and preventative health behavior, received `r routine_checks_yes` % agreement, `r routine_checks_no` % disagreement, and `r routine_checks_dn` % uncertainty, reflecting a more mixed view compared to the consistently high agreement observed in the other two statements. This disparity may point to limitations in preventative health practices, potentially driven by affordability or access barriers. It suggests that a significant portion of the population may only seek healthcare when they are already ill, rather than engaging in routine preventive care.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+
+qn_8_table_nat <- 
+  qn_8_statements %>% 
+  filter(!is.na(Response)) %>% 
+  group_by(nationality_recode,
+    Statement,Response) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Proportion = round(Count/sum(Count) * 100,0))
+
+
+
+qn_8_table_nat %>% 
+  mutate(Statement = case_when(Statement  == "access_quality" ~ "Access to \n quality healthcare \n is essential",
+                               Statement  == "ensure_access" ~ "I will do anything \n to ensure access \n to healthcare",
+                               Statement == "routine_checkups" ~ "I go for health\n  check-ups even \n when I am well" ), 
+         Response = case_when(Response == "agree" ~ "Agree",
+                              Response == "disagree" ~ "Disagree",
+                              Response == "dontknow" ~ "Don't Know")) %>% 
+  ggplot() + 
+  aes (y = Statement, x = Proportion, fill = Response)  + 
+  geom_col(position = "fill") +
+  geom_text(aes(label = ifelse(Proportion > 20, paste0(round(Proportion), "%"),"")),
+                position = position_fill(vjust = 0.5), 
+                color = "white",
+                size = 3,
+                fontface = "bold") +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    title = "Percent Distribution By Nationality of Responses by Statements",
+    x = "Percent",
+    y = "Statement",
+    fill = "Response"
+  ) +
+  facet_wrap("nationality_recode", nrow = 1) +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_blank(),   # removes x-axis title
+    axis.text.x = element_blank(),    # removes x-axis labels (ticks)
+    axis.ticks.x = element_blank()    # removes x-axis tick marks
+  )
+
+
+
+```
+
+An analysis of responses to the healthcare statements by nationality reflects a consistent emphasis across most groups on the importance of accessing quality healthcare and ensuring healthcare access. As presented in Table \@\@\@, Basotho, Zimbabwean, and 'Other' nationalities are notably less likely to seek routine health check-ups compared to their Malawian and Mozambican counterparts.
+
+## SECTION C: Willingness to sign up for the product.
 
 ### Language Preference and Choice of Healthcare Provider
 
@@ -468,10 +578,11 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-###   Gender Preference and Choice of Healthcare Provider
+
+### Gender Preference and Choice of Healthcare Provider
 
 When asked whether they choose a healthcare provider based on gender, 61% of females and 64% of males agreed with the statement, suggesting that gender plays a role in provider selection for a significant portion of both groups. Overall, 62% of respondents agreed.
-  
+
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",gender_pref!="NA") %>% 
    mutate(gender_pref=str_to_sentence(gender_pref),gender=str_to_sentence(gender)) %>% 
@@ -486,8 +597,11 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
   flextable() %>% 
   autofit()
 ```
-###  Choosing a healthcare provider based on Availablity of Key population Services
+
+### Choosing a healthcare provider based on Availablity of Key population Services
+
 When considering the availability of key population services as a factor in choosing a healthcare provider, a majority of respondents across both genders agreed that it influences their choice. Specifically, 67% of females and 78% of males agreed, resulting in an overall agreement of 73%. This indicates a strong preference for providers that offer services tailored to key populations.
+
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",keypop_services!="NA") %>% 
    mutate(keypop_services=str_to_sentence(keypop_services),gender=str_to_sentence(gender)) %>% 
@@ -504,8 +618,10 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
 
 ```
 
-### Years of Clinical Experience and Choice of Healthcare Provider 
+### Years of Clinical Experience and Choice of Healthcare Provider
+
 The majority of respondents indicated that years of clinical experience play a significant role in their choice of healthcare provider. 79% of females and 85% of males agreed with this statement, contributing to an overall agreement rate of 82%. This reflects a strong and consistent preference across both genders for experienced healthcare professionals.
+
 ```{r warning=FALSE,message=FALSE,echo=FALSE}
 
 raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_type!="NA",years_experience!="NA") %>% 
@@ -522,7 +638,7 @@ raw_data_c %>% filter(gender %in% c("male","female"),occupation!="NA",service_ty
   autofit()
 ```
 
-## Selecting  health services products 
+## Selecting health services products
 
 Understanding how different genders engage with various service types can provide valuable insights into consumer preferences and accessibility. This analysis explores the distribution of male and female preferences across different service types.The chart highlights a clear gender difference in service preferences. Females predominantly chose Gold, Platinum, and Silver services, with Gold being the most favored. In contrast, males showed a stronger preference for Lithium services, demonstrating a noticeable skew toward this option. This pattern suggests potential gender-driven trends that could inform service customization and marketing strategies
 
@@ -532,7 +648,8 @@ raw_data %>% filter(gender %in% c("male","female"),service_type!="NA") %>%
                       ggplot() +
   aes(x = service_type, fill = gender) +
   geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
+  #scale_fill_hue(direction = 1) +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
   theme_linedraw() +
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
@@ -549,12 +666,15 @@ raw_data %>% filter(gender %in% c("male","female"),occupation!="NA",service_type
                       ggplot() +
   aes(x = service_type, fill = occupation) +
   geom_bar(position = "dodge") +
-  scale_fill_hue(direction = 1) +
+  #scale_fill_hue(direction = 1) +
+  scale_fill_paletteer_d("fishualize::Acanthisthius_brasilianus") +
   theme_linedraw() +
   theme(legend.justification = "right")+
    labs(x = "Service Type", y = "Frequency",fill="Gender")  # Add axis titles here
 ```
+
 ## Preferred Payment Options
+
 When asked about their preferred payment method for healthcare services, cash emerged as the most commonly selected option, with 40% of respondents indicating this preference. This was followed by card payments, selected by 26%, and insurance, chosen by 21% of respondents. Prepaid options were the least preferred, with only 12% of participants opting for this method.
 
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
@@ -571,7 +691,9 @@ raw_data_c %>%
              percent="Percentage")
 
 ```
+
 When asked about their preferred subscription method for healthcare services, the majority of respondents (46%) indicated a preference for monthly subscriptions, suggesting a favorability toward shorter, more flexible payment cycles. This was followed by one-time subscriptions at 20%, and annual subscriptions at 16%.Less commonly selected were quarterly and biannual subscriptions, accounting for 12% and 6% of responses, respectively.
+
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
 
 raw_data_c %>%
@@ -588,6 +710,7 @@ raw_data_c %>%
 ```
 
 When asked about their preferred method of subscribing to a healthcare service, 44% of respondents favored an assisted subscription, indicating a preference for guided or in-person support. Online subscriptions were selected by 35%, demonstrating a growing acceptance of digital platforms for managing healthcare enrollment. Meanwhile, 21% preferred to subscribe through their employer.
+
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
 raw_data_c %>%
   filter(!is.na(subscription_method)) %>% 
@@ -601,6 +724,7 @@ raw_data_c %>%
              percent="Percentage")
 
 ```
+
 A total of 376 subscriptions were recorded. Most were in the 100+ ZAR (129; 34%) and 50–59 ZAR (75; 20%) ranges, followed by 10–19 ZAR (65; 17%), 30–39 ZAR (45; 12%), 20–29 ZAR (41; 11%), and 40–49 ZAR (21; 6%). Within the 100+ ZAR range, online accounted for 57 (44%), assisted 49 (30%), and employer 23 (29%). In the 50–59 ZAR band, assisted made up 34 (21%), employer 17 (21%), and online 24 (18%). Lower price tiers were dominated by assisted subscriptions, especially in the 10–19 ZAR category with 38 (23%). Online subscriptions increased progressively with price, peaking in the highest bracket.
 
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
@@ -623,6 +747,193 @@ raw_data_c %>%
                     `50`="50-59 ZAR",
                     `100`="100+ ZAR") %>% 
   autofit()
+
+```
+
+## SECTION D: Engagement and Referral 
+
+Respondents were asked whether they would share information about the new healthcare service with their friends and family. An overwhelming 97% indicated they would, highlighting a strong potential for  word-of-mouth dissemination.
+
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+# Qn 18 sharinf information about the healthcare service
+share_infor_tb <- 
+  raw_data_c %>% 
+  filter(!is.na(share_service)) %>% 
+  group_by(share_service) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Percent = round(Count/sum(Count) *100, 0))
+
+
+# Creating a waffle chart. 
+
+share_infor_tb %>% 
+  select(share_service, Percent) %>% 
+  waffle (rows = 10, 
+          colors = c("No" = "#b87333", "Yes" = "#ccc9a8"),
+          title = "Willing to share information \n about the new Healthcare Service",
+          legend_pos = "top") + 
+  theme (
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+    plot.title.position = "plot",
+    plot.margin = margin(t = 20, r = 10, b = 10, l = 10),
+    legend.position = "top",
+    legend.justification = "center",
+    legend.title = element_blank()
+  )
+  
+
+grid.text("97%", x = 0.5, y = 0.35,
+          gp = gpar(fontsize = 82, fontface = "bold", col = "black"))        
+
+```
+
+Approximately three in five individuals expressed willingness to serve as community agents and earn an  incentive by referring clients to the new healthcare service. This indicates a strong opportunity to leverage grassroots engagement as a powerful marketing and outreach channel.
+
+```{r  echo=FALSE,warning=FALSE,message=FALSE}
+ # Qn 9 willing to become a community agent 
+
+community_agent_tb <- 
+  raw_data_c %>% 
+  filter(!is.na(become_agent)) %>% 
+  group_by(nationality_recode,
+           become_agent) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Percent = round(Count/sum(Count) *100, 0))
+
+#By service selected
+service_become_agent_tb <- 
+raw_data_c %>% 
+  filter(!is.na(become_agent),
+         !is.na(service_type)) %>% 
+  group_by(service_type,
+           become_agent) %>% 
+  summarise(Count = n()) %>% 
+  mutate(Percent = round(Count/sum(Count) *100, 0))
+
+community_agent_tb %>% 
+  select(nationality_recode, become_agent, Percent) %>% 
+ggplot(aes(fill = become_agent, values = Percent)) +
+  geom_waffle(n_rows = 10, size = 0.3, color = "white") +
+  facet_wrap(~ nationality_recode, nrow = 1) +
+  scale_fill_manual(
+    values = c("No" = "#B88244FF", "Yes" = "#B8B69EFF"),
+    name = "Willing to Become Agent"
+  ) +
+  coord_equal() +
+  labs(
+    title = "Willingness to Become Community Agents by Nationality"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+    legend.position = "top",
+    legend.justification = "center"
+  )
+
+```
+Notably, analysis of respondents’ willingness to become community agents for an incentive shows interesting relationship between perceived package prestige and engagement interest. A higher proportion of individuals enrolled in the mid-tier Gold (Yes - 62%) and Silver (Yes - 73%)  health service packages expressed willingness to serve as community agents compared to those who selected the more premium Platinum (Yes - 48%) and top-tier Lithium (Yes - 56%) packages. This suggests that individuals opting for less expensive packages may view the community agent role as an opportunity to derive added value. In contrast, those in higher-tier plans may have less motivation to engage at a grassroots level.
+
+```{r echo=FALSE,warning=FALSE,message=FALSE, eval=FALSE}
+
+#stats_tb <- 
+  raw_data_c %>% 
+  filter(!is.na(agent_commission),
+         agent_commission !=  726534262,
+         !is.na(gender)) %>% 
+  group_by(nationality_recode) %>% 
+  descr(agent_commission)
+
+raw_data_c %>% 
+  filter(!is.na(agent_commission),
+         agent_commission !=  726534262,
+         !is.na(gender)) %>% 
+  group_by(nationality_recode) %>% 
+  summarise ( Mean = mean(agent_commission))
+
+raw_data_c %>% 
+  filter(!is.na(agent_commission),
+         agent_commission !=  726534262,
+         !is.na(gender)) %>% 
+  group_by(gender) %>% 
+  summarise ( Mean = mean(agent_commission))
+```
+
+The average commission rate across the total respondent population was R1,596.16 per person referred. However, this average masks substantial variation across nationality and gender subgroups. The reported commission values ranged from a minimum of R2 to a maximum of R150,000, indicating a highly skewed distribution.
+
+When disaggregated by nationality, respondents from Lesotho reported the highest average commission at R6,120—nearly four times the overall average—suggesting a stronger perceived value or expectation for referral incentives. Zimbabwe followed with a mean of R1,391, closely aligning with the overall average. Respondents classified under 'Other nationalities' had a mean of R878, while Malawians and Mozambicans reported significantly lower average commissions at R153 and R137, respectively. This widespread view may reflect differences in economic expectations, market exposure, or perceived effort-to-reward ratios across national groups.
+
+Gender-based analysis revealed that women, on average, expected significantly higher commissions (R3,030) than their male and "other gender"counterparts, whose average responses ranged from R460 to R800. This disparity may reflect differing motivations or opportunity costs associated with participation in referral-based models. 
+
+
+
+Nearly half of the respondents (49%) indicated that no formal endorsement is needed, suggesting a high level of direct trust in the service itself. About 34% of respondents expressed a preference for endorsement by their own government, indicating that messaging that resonates with national identity and local credibility may be effective for this group. Conversely, endorsements from private companies (18%) and the South African government (19%) received the least support. 
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+# qn 21 - endorsement issues 
+endorsement_ds <- 
+  raw_data_c %>% 
+  select(
+    nationality_recode,
+    gender,
+    country_res,
+    occupation,
+    education_level,
+    `endorsement_factors/other_govt`,
+    `endorsement_factors/govt`,
+    `endorsement_factors/private`,
+    `endorsement_factors/none`
+  )
+
+endorsement_ds_long <- 
+  endorsement_ds %>% 
+  pivot_longer(cols = c(`endorsement_factors/other_govt`,
+                        `endorsement_factors/govt`,
+                        `endorsement_factors/private`,
+                        `endorsement_factors/none`),
+               names_to = "endorsement_body",
+               values_to = "Response_yes_no"
+  ) %>% 
+  mutate(Response_yes_no = case_when(
+    Response_yes_no == 1 ~ "Yes",
+    Response_yes_no == 0 ~ "No",
+    TRUE ~ NA) ,
+    endorsement_body = case_when ( 
+      endorsement_body == "endorsement_factors/other_govt" ~ "Own Government",
+      endorsement_body == "endorsement_factors/govt" ~ "South African Government",
+      endorsement_body == "endorsement_factors/private" ~ "Private Companies",
+      endorsement_body == "endorsement_factors/none" ~ "No endorsment needed")
+  
+  )
+
+  
+
+
+endorsement_ds_long %>% 
+  filter(!is.na(endorsement_body),
+         !is.na(Response_yes_no)) %>% 
+  group_by(endorsement_body, Response_yes_no) %>% 
+  summarise(Count = n(), .groups = "drop") %>% 
+  group_by(endorsement_body) %>% 
+  mutate(Percent = round(Count / sum(Count) * 100, 0)) %>% 
+  ggplot(aes(x = endorsement_body, y = Percent, fill = Response_yes_no)) +
+  geom_col(position = "fill") +
+  geom_text(aes(label = paste0(Percent, "%")),
+            position = position_fill(vjust = 0.5), 
+            color = "white",
+            size = 3,
+            fontface = "bold") +
+  scale_fill_manual(values = c("No" = "#B88244FF", "Yes" = "#B8B69EFF"))+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    title = "Percent Distribution of Responses on which Body to \n Endorse the new Healthcare service ",
+    x = "Endorsement Body",
+    y = "Percentage",
+    fill = "Response"
+  ) +
+  theme_minimal() + 
+  theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))
+
 
 ```
 
