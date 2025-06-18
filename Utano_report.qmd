@@ -1,8 +1,9 @@
 ---
 title: "Utano Market Survey Report"
 author: "UlwaziHub"
-output: pdf_document
 editor: visual
+format:   docx
+
 ---
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
@@ -393,7 +394,7 @@ edu_occ_gender <-
   adorn_pct_formatting(digits = 0)  %>% 
   adorn_ns("rear")
 
-  edu_occ_nat$Lesotho$Unemployed[edu_occ_nat$Lesotho$Education == "Total"]
+  #edu_occ_nat$Lesotho$Unemployed[edu_occ_nat$Lesotho$Education == "Total"]
 
 
 ```
@@ -724,6 +725,94 @@ raw_data_c %>%
              percent="Percentage")
 
 ```
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+raw_data_c %>%
+  filter(!is.na(employer)) %>% 
+  mutate(subscription_method=str_to_sentence(subscription_method)) %>% 
+  tabyl(employer ) %>% 
+    adorn_totals() %>% 
+  adorn_pct_formatting(digits = 0) %>% 
+   gt() %>% 
+  cols_label(employer="Employer",
+             n="Frequency",
+             percent="Percentage") 
+
+
+raw_data_c %>%
+  filter(!is.na(employer),subscription_method!="Na") %>% 
+  mutate(subscription_method=str_to_sentence(subscription_method)) %>% 
+    rename(`Subscription Method`=subscription_method) %>% 
+  tabyl(employer ,`Subscription Method`) %>% 
+ adorn_totals(where = "row") %>%   
+   adorn_totals(where = "col") %>%                   # Add row totals
+# Add row totals
+  adorn_percentages(denominator = "row") %>%        # Add row-wise percentages
+  adorn_pct_formatting(digits = 0) %>%              # Format percentages nicely
+  adorn_ns(position = "front") %>%      
+ flextable() %>% 
+  autofit() %>% 
+  set_header_labels(employer="Employer")
+```
+Among respondents who indicated they are currently employers, a significant majority—95% (153 individuals)—reported that they would be willing to obtain insurance coverage for their employees if offered a plan that costs less than their current payment. Only 5% (8 individuals) expressed reluctance to make such a change.Furthermore,Among 167 employers surveyed, the majority—56% (93)—indicated they would choose the Gold package for their employees, reflecting a strong preference for premium coverage. This was followed by Silver (24%), Platinum (16%), and Lithium (5%).
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+# 16. Which membership/service would you select for your employees?
+# Gold
+# Silver
+# Platinum,
+# Lithium
+raw_data_c %>%
+  filter(!is.na(employer) & employer=="Yes",!is.na(subscription_type)) %>% 
+  mutate(subscription_type=str_to_sentence(subscription_type)) %>% 
+  tabyl(employer ,subscription_type) %>% 
+adorn_totals(where = "col") %>%   
+   #adorn_totals(where = "col") %>%                   # Add row totals
+# Add row totals
+  adorn_percentages(denominator = "row") %>%        # Add row-wise percentages
+  adorn_pct_formatting(digits = 0) %>%              # Format percentages nicely
+  adorn_ns(position = "front") %>%      
+ flextable() %>% 
+  autofit() %>% 
+  set_header_labels(employer="Employer")
+
+
+raw_data_c %>%
+  filter(!is.na(employer) & employer=="Yes",!is.na(service_type)) %>% 
+  mutate(service_type=str_to_sentence(service_type)) %>% 
+  tabyl(employer ,service_type) %>% 
+adorn_totals(where = "col") %>%   
+   #adorn_totals(where = "col") %>%                   # Add row totals
+# Add row totals
+  adorn_percentages(denominator = "row") %>%        # Add row-wise percentages
+  adorn_pct_formatting(digits = 0) %>%              # Format percentages nicely
+  adorn_ns(position = "front") %>%      
+ flextable() %>% 
+  autofit() %>% 
+  set_header_labels(employer="Employer")
+
+```
+
+Among respondents who indicated they are currently employers, a significant majority—95% (153 individuals)—reported that they would be willing to obtain insurance coverage for their employees if offered a plan that costs less than their current payment. Only 5% (8 individuals) expressed reluctance to make such a change.
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+data_pie <- raw_data_c %>%
+  filter(!is.na(employer) & employer=="Yes",!is.na(employ_insur_coverage)) %>% 
+  mutate(employ_insur_coverage  =str_to_sentence(employ_insur_coverage  )) %>% 
+  select(employer ,employ_insur_coverage ) %>% 
+    count(employ_insur_coverage) %>%
+  mutate(percentage = round(n / sum(n) * 100, 1),
+         label = paste0(employ_insur_coverage, ": ", n, " (", percentage, "%)"))
+  
+# Create pie chart
+ggplot(data_pie, aes(x = "", y = n, fill = employ_insur_coverage)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = label), 
+            position = position_stack(vjust = 0.5), size = 4) +
+  labs(title = "Employment Insurance Coverage Among Those Employed",
+       fill = "Coverage") +
+  theme_void()
+  
+
+```
 
 A total of 376 subscriptions were recorded. Most were in the 100+ ZAR (129; 34%) and 50–59 ZAR (75; 20%) ranges, followed by 10–19 ZAR (65; 17%), 30–39 ZAR (45; 12%), 20–29 ZAR (41; 11%), and 40–49 ZAR (21; 6%). Within the 100+ ZAR range, online accounted for 57 (44%), assisted 49 (30%), and employer 23 (29%). In the 50–59 ZAR band, assisted made up 34 (21%), employer 17 (21%), and online 24 (18%). Lower price tiers were dominated by assisted subscriptions, especially in the 10–19 ZAR category with 38 (23%). Online subscriptions increased progressively with price, peaking in the highest bracket.
 
@@ -735,7 +824,6 @@ raw_data_c %>%
   adorn_totals() %>% 
   rename(`Subscription Method`=subscription_method) %>% 
  # Optional: add total row
-  adorn_percentages("row") %>%  
   # Calculate row percentages
   adorn_pct_formatting(digits = 0) %>%        # Format percentages
   adorn_ns(position = "front") %>% 
